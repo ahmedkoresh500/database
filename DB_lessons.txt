@@ -1,0 +1,67 @@
+1- MYSQL introduction
+2- the needed tools
+3- information about [phpmyadmin] & [command line]
+4- connect with PDO
+
+5- dataType: [integer type]
+6- dataType: [Date & Time] type
+7- dataType: [string type]
+
+8- deal with dataBases
+9- deal with DataBase [part 1] 	=>> [create table]
+10- deal with tables  [part 2]  =>> [rename table], [storage engine]
+11- deal with tables  [part 3]  =>> [ALTER]
+12- deal with tables  [part 4]  =>> [ALTER revision]
+
+13- [constraint intro]
+14- [NOT NULL], [UNIQUE] constraint
+
+15- [primary key] costraint
+16- foreign key [part 1] constraint
+17- foreign key [part 2]  [CREATE TABLE try2();], [DROP TABLE try2;], [TRUNCATE try2;]
+18- foreign key [part 3]  [ON UPDATE, ON DELETE]
+19- foreign key [part 4]  [one to one]
+20- foreign key [part 5]  [one to many]
+21- foreign key [part 6]  [many to many]
+
+
+22- string functions [part 1]	[LEFT(), MID(), RIGHT()]
+23- string functions [part 2]	[LENGTH()] [CHAR_LENGTH() = CHARACTER_LENGTH()]
+24- string functions [part 3]	[LCASE() = LOWER()] [UCASE() = UPPER()]
+25- string functions [part 4]	[REPEAT(), REPLACE(), REVERSE()]
+26- string functions [part 5]	[CONCAT(), CONCAT_WS()]
+27- string functions [part 6]	[INSERT()]
+28- string functions [part 7]	[TRIM(), LTRIM(), RTRIM()]
+29- string functions [part 8]	[LPad(), RPad()]
+
+30- Numeric functions [part 1]	[CEIL, FLOOR, ROUND]
+31- Numeric functions [part 2]	[MOD, TRUNCATE, POW]
+
+32- [Date + Time] functions  [part 1]	[CURRENT_TIME(), CURRENT_DATE(), CURRENT_TIMESTAMP()]
+33- [Date + Time] functions  [part 2]	[DAYNAME(), DAYOFWEEK, DAYOFMONTH(), DAUOFYEAR()]
+34- [Date + Time] functions  [part 3]	[MONTH(), MONTHNAME(), HOUR(), MINUTE()]
+35- [Date + Time] functions  [part 4]   [DATEDIFF()]
+36- [Date + Time] functions  [part 5]	[LAST_DAY(), DATE_ADD(), DATE_SUB()]
+
+37- comparison functions [part 1]	[BETWEEN ... AND ...] [NOT BETWEEN ... AND ...]
+38- comparison functions [part 2]	[IN (...)] [NOT IN (...)]
+39- comparison functions [part 3]	[LIKE (%_%)] [NOT LIKE (%_%)]
+
+40- comparison operators			[2]
+41- logical operators				[3]
+
+42- control flow functions [IF]
+43- control flow functions [CASE]
+44- Arithmetic operators			[1]
+
+45- information functions
+46- [GROUP BY] & [ORDER BY] & [HAVING]
+
+47- JOIN simulation
+48- Alias names
+49- [INNER JOIN]
+50- [LEFT], [RIGHT] JOIN:  	[FULL JOIN] [why PHP two times]  =>> two errors
+51- the end and references
+
+procedures - triggers - sql injection
+
