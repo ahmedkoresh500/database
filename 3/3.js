@@ -4,7 +4,7 @@
         =>> delete all [files] not [folders]  
         =>> [xampp] program  =>> start mysql
 
-    * [cmder] program:
+    * [cmd] program:
         =>> mysql -u root -p
         =>> show databases;
         =>> use products;                                   =>> semicolon is a must
@@ -40,5 +40,4 @@
 
         =>> INSERT INTO osama.items (id, name) VALUES (NULL, 'bicycle');
         =>> INSERT INTO items VALUES (NULL, 'bicycle');
-
 */
