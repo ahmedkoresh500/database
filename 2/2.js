@@ -1,9 +1,9 @@
 /*
 
     * [tools], [methods] to modify data in database
-        [1] [command prompt]  =>> desktop                   =>> windows, linux, mac
-        [2] [shell]    =>> [windows+r] =>> cmd  =>> enter      =>> windows, linux, mac
-        [3] [xampp] program  =>> shell
+        [1] [command prompt]  =>> desktop                                   =>> windows, linux, mac
+        [2] [shell]    =>> [windows+r] =>> write [cmd]  =>> press [enter]   =>> windows, linux, mac
+        [3] [xampp] program  =>> press [shell]
 
             =>> [cd /c/xampp/mysql/bin]
             =>> [c:/xampp/mysql/bin>mysql -u root -p]
@@ -28,9 +28,9 @@
 
         [2] [phpmyadmin]
             =>> press [database name]
-            =>> press [operation]
-            =>> DROP DATABASE ecom;     =>> two are the same
-            =>> DROP DATABASE ecom;     =>> two are the same
+            =>> press [operations]
+            =>> DROP DATABASE `ecom`;       =>> two are the same
+            =>> DROP DATABASE ecom;         =>> two are the same
 
             =>> new: ecom   =>> utf8mb4_general_ci
 

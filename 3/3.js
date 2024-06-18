@@ -1,29 +1,36 @@
 /*
     * [xampp] program  =>> start mysql  =>> syntax error:
         =>> c:/xampp/mysql  
-        =>> delete all [files] not [folders]  
+        =>> delete [files] not [folders]  
         =>> [xampp] program  =>> start mysql
 
-    * [cmd] program:
+    [1] [command prompt]  =>> desktop                                   =>> windows, linux, mac
+    [2] [shell]    =>> [windows+r] =>> write [cmd]  =>> press [enter]   =>> windows, linux, mac
+    [3] [xampp] program  =>> press [shell]
+
         =>> mysql -u root -p
-        =>> show databases;
-        =>> use products;                                   =>> semicolon is a must
+        =>> [enter password]                        =>> [""]  [open mariaDB]
+        =>> show databases;                         =>> semicolon is a must
+        =>> use products;                           =>> semicolon is a must
 
-        =>> SELECT id, name FROM products.items;            =>> two are the same
-        =>> SELECT id, name FROM items;                     =>> two are the same
-        =>> quit                                            =>> semicolon here optional
+        =>> SELECT id, name FROM items;             =>> two are the same
+        =>> SELECT id, name FROM products.items;    =>> two are the same
+        =>> quit                                    =>> semicolon here optional =>> two are the same
+        =>> \q                                      =>> semicolon here optional =>> two are the same
 
-    * [phpMyadmin]:
-        =>> CREATE DATABASE if NOT EXISTS osama;    =>> not sensitive to upper and lower cases
-        =>> DROP DATABASE osama;                    =>> not sensitive to upper and lower cases
-        =>> DROP DATABASE if EXISTS osama;          =>> not sensitive to upper and lower cases
+    * [phpmyadmin]  =>> press [SQL]:
+        =>> CREATE DATABASE osama;                  =>> not sensitive to upper and lower cases
+        =>> CREATE DATABASE IF NOT EXISTS osama;    =>> not sensitive to upper and lower cases
+
+        =>> DROP DATABASE osama;
+        =>> DROP DATABASE IF EXISTS osama;          =>> not sensitive to upper and lower cases
         
         =>> CREATE TABLE osama.items (
             id INT (11) NOT NULL PRIMARY KEY,
             name VARCHAR (255) NOT NULL,
             email VARCHAR (255) NOT NULL UNIQUE,
             info VARCHAR (255) NOT NULL,
-            country VARCHA(255) not null
+            country VARCHAR(255) NOT NULL
         ) ENGINE = InnoDB;
 
 
