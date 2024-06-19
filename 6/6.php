@@ -34,5 +34,4 @@ try{
     $db -> exec($query);
 */
 
-
 ?>
