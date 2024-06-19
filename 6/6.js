@@ -1,3 +1,3 @@
 /*
-    * dataType: [Date & Time] type:
+    * dataType: [Date & Time]:
 */

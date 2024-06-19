@@ -44,11 +44,11 @@ try{
     //echo "you are connected";
 
     // way [1]:
-    $stm = $db -> prepare("INSERT INTO products.items VALUES (NULL, 'cairo', 'egypt')");
+    $stm = $db -> prepare("INSERT INTO products.items VALUES (NULL, 'Cairo', 'Egypt')");
     $stm -> execute();
 
     // way [2]:
-    $query = "INSERT INTO products.items VALUES (NULL, 'khortom', 'sudan')";                            // two are the same
+    $query = "INSERT INTO products.items VALUES (NULL, 'Khortom', 'Sudan')";                            // two are the same
     // $query = "INSERT INTO products.items (id, `city`, `country`) VALUES (NULL, 'khortom', 'sudan')"; // two are the same
     $db -> exec($query);
 
