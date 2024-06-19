@@ -4,48 +4,54 @@
     * dataType: [integer type]:
 
     * queries:
-        =>> ALTER TABLE test.tbl ADD UNIQUE (id);       =>> two ar ethe same  =>> parentheses is a must
-        =>> ALTER TABLE tbl ADD UNIQUE (id);            =>> two are the same  =>> parentheses is a must
+        [1] ALTER TABLE date ADD UNIQUE (id);           =>> 3 are the same  =>> [parentheses] is a must
+        [2] ALTER TABLE products.date ADD UNIQUE (id);  =>> 3 ar ethe same  =>> [parentheses] is a must
+        [3] ALTER TABLE date ADD INDEX (id);            =>> 3 are the same  =>> [parentheses] is a must
 
-        =>> ALTER TABLE tbl DROP INDEX id;              =>> drop unique
+        [1] add [unique] attribute with [keyname]  =>> [id]
+        [2] add [unique] attribute with [keyname]  =>> [id_1]
+        [3] add [unique] attribute with [keyname]  =>> [id_2]
 
+        [4] ALTER TABLE date DROP INDEX id;     =>> drop unique attribute  =>> [no parentheses] is a must
+        [5] ALTER TABLE date DROP INDEX id_2;   =>> drop unique attribute  =>> [no parentheses] is a must
+        [6] ALTER TABLE date DROP INDEX id_3;   =>> drop unique attribute  =>> [no parentheses] is a must
 
-        =>> ALTER TABLE tbl ADD PRIMARY KEY (id);
+        =>> ALTER TABLE date ADD PRIMARY KEY (id);
+        =>> ALTER TABLE date DROP PRIMARY KEY;
+        =>> ALTER TABLE products.date DROP PRIMARY KEY, ADD PRIMARY KEY (id);
 
-        =>> ALTER TABLE test.tbl DROP PRIMARY KEY;
-        =>> ALTER TABLE tbl DROP PRIMARY KEY, ADD PRIMARY KEY(id);
+        =>> CREATE DATABASE 'elzero';                               =>> create database
+        =>> DROP DATABASE 'elzero';                                 =>> drop database
 
+        =>> CREATE TABLE 'date'(id INT (11) NOT NULL);              =>> create table
+        =>> DROP TABLE 'date';                                      =>> drop table
 
-
-        =>> CREATE DATABASE 'elzero';                           =>> create dataBase
-        =>> DROP DATABASE 'elzero';                             =>> drop database
-
-        =>> CREATE TABLE 'tbl'(id INT (11) NOT NULL);           =>> create table
-        =>> DROP TABLE 'tbl';                                   =>> drop table
-
-        =>> ALTER TABLE tbl ADD name VARCHAR (255) NOT NULL;    =>> add column
-        =>> ALTER TABLE tbl DROP name;                          =>> drop column
+        =>> ALTER TABLE date ADD birth_day VARCHAR (255) NOT NULL;  =>> add column
+        =>> ALTER TABLE date DROP birth_day;                        =>> drop column
 */
 
 
-$dsn = "mysql:host=localhost;dbName=test";
-$user = "root";
+$dsn = "mysql:host=localhost;dbName=products";
+$userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // uppercase or lowercase
-);                                                          // support arabic in database
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8]   =>> uppercase or lowercase
+);                                                          // [utf8]   =>> support arabic in database
 
 try{
-    $db = new PDO($dsn, $user, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new PDO($dsn, $userName, $password, $options);
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // try, catch =>> [exception] mode
+
+    $stm = $db -> prepare( "INSERT INTO products.date (id, birth_year) VALUES ('4', '2003')" );
+    $stm -> execute();
+
 }catch(PDOException $e){
-    echo "failed " . $e -> getMeassage();
+    echo "failed " . $e -> getMessage();
 };
 
-for($i=1 ; $i<=77 ; $i++){
-    $stm = $db -> prepare( "INSERT INTO test.tbl (id) VALUES ('127')" );
-    $stm -> execute();
-};
+
+
+
 
 /*
     $stm = $db -> prepare("");      =>> two are the same

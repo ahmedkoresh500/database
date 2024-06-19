@@ -10,6 +10,9 @@
 
     =>> DROP TABLE items;               =>> two are the same
     =>> DROP TABLE products.items;      =>> two are the same
+
+    =>> ALTER TABLE items CHANGE city name VARCHAR (255) NOT NULL;      =>> change column name
+    =>> ALTER TABLE items CHANGE name city VARCHAR (255) NOT NULL;      =>> change column name
 */
 
 $host = 'localhost';
@@ -41,12 +44,12 @@ try{
     //echo "you are connected";
 
     // way [1]:
-    $stm = $db -> prepare("INSERT INTO items VALUES (NULL, 'bicycle')");
+    $stm = $db -> prepare("INSERT INTO products.items VALUES (NULL, 'cairo', 'egypt')");
     $stm -> execute();
 
     // way [2]:
-    $query = "INSERT INTO products.items (id, `name`) VALUES (NULL, 'beachbugy')";  // two are the same
-    // $query = "INSERT INTO items VALUES ('beachbugy')";                           // two are the same
+    $query = "INSERT INTO products.items VALUES (NULL, 'khortom', 'sudan')";                            // two are the same
+    // $query = "INSERT INTO products.items (id, `city`, `country`) VALUES (NULL, 'khortom', 'sudan')"; // two are the same
     $db -> exec($query);
 
 }catch(PDOException $e){
