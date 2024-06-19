@@ -3,10 +3,13 @@
 /*
     * connect with PDO:
 
-    * [phpmyadmin]:
-    * [cmder program]:
-        =>> DROP TABLE products.items;      =>> two are the same
-        =>> DROP TABLE items;               =>> two are the same
+    [1] [command prompt]    =>> desktop                                     =>> windows, linux, mac
+    [2] [shell]     =>> [windows+R]  =>> write [cmd]  =>> press [enter]     =>> windows, linux, mac
+    [3] [xampp] program     =>> press shell
+    [4] [phpmyadmin]  =>> press [SQL]
+
+    =>> DROP TABLE items;               =>> two are the same
+    =>> DROP TABLE products.items;      =>> two are the same
 */
 
 $host = 'localhost';
@@ -25,12 +28,12 @@ if($conn){
     * [dsn] = data source name
     * [mysql]  =>> prefix related to database
 */
-$dsn = 'mysql:host=localhost;dbName=products';  // accept [port], [dataBase name], [unix socket], [character set]
+$dsn = 'mysql:host=localhost;dbName=products';  // accept [port], [database name], [unix socket], [character set]
 $userName = 'root';
 $password = '';
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',   // uppercase or lowercase
-);                                                      // [support arabic in dataBase]
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',   // [utf8]  =>> uppercase or lowercase
+);                                                      // [utf8]  =>> [support arabic in database]
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
@@ -38,7 +41,7 @@ try{
     //echo "you are connected";
 
     // way [1]:
-    $stm = $db -> prepare("INSERT INTO products.items VALUES (NULL, 'bicycle')");
+    $stm = $db -> prepare("INSERT INTO items VALUES (NULL, 'bicycle')");
     $stm -> execute();
 
     // way [2]:
@@ -49,6 +52,5 @@ try{
 }catch(PDOException $e){
     echo 'Failed ' . $e -> getMessage(); // [getMessage()], [getLine()], [getCode()] in [try & catch] by default
 };
-
 
 ?>

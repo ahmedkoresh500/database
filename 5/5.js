@@ -16,14 +16,17 @@
     * BOOLEAN       =>> [true, false] [1, 0]
     * SERIAL        =>> alias for [BIGINT]
 
-    
-    * [phpMyAdmin]:
-        =>> dataBase name  =>> table name  =>> empty        =>> three are the same  =>> to empty table
-        =>> table  =>> operation  =>> empty                 =>> three are the same  =>> to empty table
-        =>> TRUNCATE 'table name';                          =>> three are the same  =>> to empty table
+    * [phpmyadmin]:
+        * to empty specific [table]:
+        [1] press [table] =>> press [operations] =>> press [empty]  =>> 3 are the same
+        [2] TRUNCATE `items`;                                       =>> 3 are the same
+        [3] TRUNCATE `products`.`items`;                            =>> 3 are the same
 
-        =>> table  =>> structure  =>> column  =>> change column  =>> change dataType
-
+        * to change [column] datatype:
+        =>> press [table]
+        =>> press [structure]
+        =>> press [change] for any column
+        =>> change [dataType]
 
     * row = record = tuple
     * coulmn = attribute = field
