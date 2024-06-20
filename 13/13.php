@@ -21,7 +21,7 @@
 # [unix shell] comment style
 # * one line comment  =>> like [//]
 
-$dsn = "mysql:hos=localhost;dbname=elzero";             // watch the difference
+$dsn = "mysql:host=localhost;dbname=elzero";
 $userName = "root";
 $password = "";
 $options = array(
