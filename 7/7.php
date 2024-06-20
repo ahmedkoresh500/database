@@ -52,15 +52,14 @@ for($i=1 ; $i<=10 ; $i++){
 
 
 /*
-    =>> inside [osama] database:
     create table osama.identity(
     id int (11) not null unique
     ) engine = innodb;
 */
 
 /*
-    $query = "TRUNCATE osama.identity";        // two are the same
-    $query = "DELETE FROM osama.identity";     // two are the same
+    $query = "TRUNCATE osama.identity";        // two are the same  =>> to empty specific table
+    $query = "DELETE FROM osama.identity";     // two are the same  =>> to empty specific table
     $db -> exec($query);
 */
 

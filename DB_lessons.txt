@@ -1,14 +1,15 @@
-1- MYSQL introduction
-2- the needed tools
-3- information about [phpmyadmin] & [command line]
-4- connect with PDO
+1-  MYSQL introduction
+2-  the needed tools
+3-  information about [phpmyadmin] & [command line]
+4-  connect with PDO
 
-5- dataType: [integer type]
-6- dataType: [Date & Time] type
-7- dataType: [string type]
+5-  dataType: [integer type]
+6-  dataType: [Date & Time] type
+7-  dataType: [string type]
 
-8- deal with databases
-9- deal with Database [part 1] 	=>> [create table]
+8-  deal with databases
+
+9-  deal with tables  [part 1] 	=>> [create table]
 10- deal with tables  [part 2]  =>> [rename table], [storage engine]
 11- deal with tables  [part 3]  =>> [ALTER]
 12- deal with tables  [part 4]  =>> [ALTER revision]
