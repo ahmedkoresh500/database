@@ -4,28 +4,37 @@
     * deal with tables: [part 2]:
         =>> [rename table] and [storage engine]:
 
+    * [command prompt]      =>> desktop
+    * [shell]       =>> [windows+R]  =>> write [cmd]  =>> press [enter]
+    * [xampp] program       =>> press [shell]
+    * [phpmyadmin]          =>> press [SQL]
+
+    =>> mysql -u root -p
+    =>> enter password                              =>> [""]  =>> no password
+
+    =>> create table s1 (id int (11) not null primary key) engine = innodb;
+    =>> create table s2 (id int (11) not null primary key) engine = innodb;
+
+    =>> RENAME TABLE s1 TO new1, s2 TO new2;                            =>> 3 are the same
+    =>> ALTER TABLE new1 RENAME s1;                                     =>> 3 are the same
+    =>> ALTER TABLE new2 RENAME s2;
+
+    =>> ALTER TABLE s1 ENGINE = InnoDB;
+    =>> ALTER TABLE s2 ENGINE = MYISAM;
+
     * [phpmyadmin]:
-    * [cmder program]:
-        =>> create two tables [s1], [s2] with one column [id]
+        =>> press [table]  =>> press [operations]  =>> rename table        =>> 3 are the same
+        =>> press [table]  =>> press [operations]  =>> change engine       =>> 3 are the same
 
-        =>> RENAME TABLE s1 TO new1, s2 TO new2;        =>> three are the same
-        =>> ALTER TABLE s1 RENAME new1;                 =>> three are the same
-        =>> ALTER TABLE new1 ENGINE = MYISAM;
-        =>> ALTER TABLE new1 ENGINE = InnoDB;
-
-    * [phpmyadmin]:
-        =>> [s1]  =>> operation  =>> rename table       =>> three are the same
-        =>> [s1]  =>> operation  =>> change engine
-
-    * storage engine = InnoDB;
+    *  [engine] [storage engine] = InnoDB;
 */
 
 $dsn = "mysql:host=localhost;dbName=test";
 $userName = "root";
 $password = "";
-$options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
-);
+$options = array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8" );
+    // [utf8]  =>> uppercase or lowercase
+    // [utf8]  =>> support arabic in database
 
 $db = new PDO($dsn, $userName, $password, $options);
 

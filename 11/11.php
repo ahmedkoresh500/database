@@ -1,42 +1,46 @@
 <?php
 
 /*
-    * deal with tables: [part 3]:
-        =>> [ALTER]
+    * deal with tables: [part 3]: [ALTER]:
 
     [1] [Add]:
-        =>> mysql -u root
-        =>> use elzero;                                                 =>> to be inside dataBase elzero;
-        =>> ALTER TABLE students ADD password VARCHAR(255);             =>> add at the end
+        =>> mysql -u root -p
+        =>> enter password                                  =>> [""] no password
 
-        =>> show table status                                           =>> to show status of all tables
+        =>> show databases;
+        =>> use osama;
+
+
+        =>> show table status                                           =>> show status of all tables
         =>> ;                                                           =>> semicolon is a must
 
-        =>> ALTER TABLE students ADD test VARCHAR (255) FIRST;          =>> [1] add column
-        =>> ALTER TABLE students ADD userName VARCHAR(255) AFTER name;  =>> dataType is a must
+        * [datatype] is a must
+        =>> ALTER TABLE students ADD password VARCHAR(255);             =>> add new column  =>> at end [by default]
+        =>> ALTER TABLE students ADD age int (11) FIRST;                =>> add new column  =>> at first
+        =>> ALTER TABLE students ADD userName VARCHAR(255) AFTER name;  =>> add new column  =>> after specific column
 
     [2] [DROP]:
-        =>> ALTER TABLE students DROP test;                             =>> [1] drop column
+        =>> ALTER TABLE students DROP age;                             =>> drop specific column
     * [phpmyadmin]
-        =>> table  =>> structure  =>> column  =>> DROP column
+        =>> press [table]  =>> press [structure]  =>> press [drop] for specific column
 
     [3] [move]:
     * [phpmyadmin]:
-        =>> table  =>> structure  =>> column  => change column  =>> move column
-        =>> ALTER TABLE students CHANGE `password` `password` VARCHAR (255) AFTER `email`;
+        =>> press [table]  =>> press [structure]  =>> press [move columns]
 
-        =>> ALTER TABLE students CHANGE name name CHAR (50);
-        =>> ALTER TABLE students MODIFY name CHAR (30);
+        =>> ALTER TABLE students CHANGE name name VARCHAR (255);
+        =>> ALTER TABLE students CHANGE name Name CHAR (255) FIRST;
+        =>> ALTER TABLE students CHANGE `Name` `name` CHAR (255) AFTER `id`;
+        =>> ALTER TABLE students MODIFY name VARCHAR (255);
 
-        =>> ALTER TABLE students CHANGE name NAme CHAR (90);
 */
 
 $dsn = "mysql:host=localhost;dbName=test";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
-);                                                          // support arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // [utf8] uppercase or lowercase
+);                                                          // [utf8] support arabic in dataBase
 
 $db = new PDO($dsn, $userName, $password, $options);
 
@@ -45,7 +49,5 @@ try{
 }catch(PDOEception $e){
     echo "Failed" . $e -> getMessage();
 };
-
-
 
 ?>
