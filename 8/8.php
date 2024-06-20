@@ -1,37 +1,46 @@
 <?php
 
 /*
-    * deal with dataBases:
+    * deal with databases:
 
-    * [cmder program]:
-        =>> mysql -u root
+    [1] [command prompt]        =>> desktop
+    [2] [shell]                 =>> [winows+R]  =>> write [cmd]  =>> press [enter]
+    [3] [xampp] program         =>> press [shell]
+    [4] [phpmyadmin]            =>> press [SQL]
+        =>> mysql -u root -p
+        =>> enter password                          =>> ""
+
         =>> show databases;                         =>> semicolon is a must
-        =>> use elzero;                             =>> to be inside dataBase elzero
+        =>> use osama;                              =>> to be inside it
 
-        =>> CREATE DATABASE elzero;                 =>> [1] created successfully
-        =>> CREATE DATABASE elzero;                 =>> found
-        =>> CREATE DATABASE IF NOT EXISTS elzero;
+        =>> SHOW DATABASES LIKE 'osama';            =>> ['] is a must       =>> [`] = syntax error
+        =>> SHOW DATABASES LIKE "osama";            =>> ["] is a must       =>> [`] = syntax error
 
-        =>> DROP DATABASE elzero;                   =>> [1] deleted successfully
-        =>> DROP DATABASE elzero;                   =>> not found
-        =>> DROP DATABASE IF EXISTS elzero;
+        =>> SHOW INDEXES FROM identity;             =>> [`] is optional     =>> [']or["] = syntax error
+        =>> SHOW INDEXES FROM `identity`;           =>> [`] is optional     =>> [']or["] = syntax error
+        =>> SHOW INDEXES FROM osama.identity;
+        =>> SHOW INDEXES FROM osama.`identity`;
 
+        =>> CREATE DATABASE osama;                  =>> [1] created successfully
+        =>> CREATE DATABASE osama;                  =>> [2] [exists]
+        =>> CREATE DATABASE IF NOT EXISTS osama;    =>> [3] no reply
 
-        =>> SHOW DATABASES LIKE 'elzero';           =>> [`]  =>> syntax error
-        =>> SHOW INDEXES FROM students;             =>> ['] is a must
+        =>> DROP DATABASE osama;                    =>> [1] deleted successfully
+        =>> DROP DATABASE osama;                    =>> [2] not exists
+        =>> DROP DATABASE IF EXISTS osama;          =>> [3] no reply
 
-    * path of dataBases created         =>> c:/xampp/mysql/data/
-                                        =>> .frm
-                                        =>> .ibd    =>> related to storage
-                                                    =>> [storage engine = InnoDB]
+    * path of databases created     =>> c:/xampp/mysql/data/
+                                    =>> .frm
+                                    =>> .ibd    =>> related to storage
+                                            =>> [storage engine = InnoDB]
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
-);
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // [utf8]  =>> uppercase or lowercase
+);                                                          // [utf8]  =>> support arabic in database
 
 $db = new PDO ($dsn, $userName, $password, $options);
 try{
@@ -39,6 +48,5 @@ try{
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
-
 
 ?>

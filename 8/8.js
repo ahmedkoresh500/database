@@ -1,3 +1,3 @@
 /*
-    * deal with dataBases:
+    * deal with databases:
 */

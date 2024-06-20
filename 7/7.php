@@ -1,7 +1,7 @@
 <?php
 
 /*
-    * dataType: [string type]:
+    * dataType: type [string]:
         [1] TINYTEXT
         [2] TEXT
         [3] MEDIUMTEXT
@@ -15,7 +15,6 @@
         [2] varchar     =>> store dynamic value     (comment)
                         =>> slower      =>> use dynamic memory
                         =>> maximum = 255 character [v.5.0.3]   = 65.535 [v.5.0.3+]
-
 
     * [TEXT] vs [BLOB]:
         [1] TEXT    =>> have charset            =>> have hz         =>> to support arabic
@@ -45,16 +44,24 @@ try{
     echo "Failed" . $e -> getMessage();
 }
 
-for($i=1 ; $i<=100 ; $i++){
-    //$stm = $db -> prepare("INSERT INTO test.number (id) VALUES ($i)");
-    $stm = $db -> prepare( "INSERT INTO test.number (id) VALUES ($i)" );
+for($i=1 ; $i<=10 ; $i++){
+    //$stm = $db -> prepare("INSERT INTO osama.identity (id) VALUES ($i)");
+    $stm = $db -> prepare( "INSERT INTO osama.identity (id) VALUES ($i)" );
     $stm -> execute();
 };
 
+
 /*
-$query = "TRUNCATE test.string";        // two are the same
-$query = "DELETE FROM test.number";     // two are the same
-$db -> exec($query);
+    =>> inside [osama] database:
+    create table osama.identity(
+    id int (11) not null unique
+    ) engine = innodb;
+*/
+
+/*
+    $query = "TRUNCATE osama.identity";        // two are the same
+    $query = "DELETE FROM osama.identity";     // two are the same
+    $db -> exec($query);
 */
 
 /*
