@@ -18,8 +18,8 @@
 
 */
 
-# unix shell comment style
-# comment with hash  =>> one line comment  =>> like [//]
+# [unix shell] comment style
+# * one line comment  =>> like [//]
 
 $dsn = "mysql:hos=localhost;dbname=elzero";             // watch the difference
 $userName = "root";
