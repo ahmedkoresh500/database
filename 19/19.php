@@ -1,46 +1,45 @@
 <?php
 
 /*
-    * foreign key: [part 4]: 
-        =>> [one to one] relationship           =>> visa number owned by one client
-        =>> [one to many] relationship          =>> more than one address
-        =>> [many to many] relationship
+    * foreign key: [part 4]: relationships:
+        =>> [one to one]            =>> visa number owned by one client
+        =>> [one to many]           =>> more than [one address] [one order]
+        =>> [many to many]
 
-    * [phpmyadmin]:  =>> [one to one]:
+    * [phpmyadmin]:  =>> [one to one] relationship:
+        =>> CREATE TABLE cards(                             =>> two are the same
+            id INT (11) NOT NULL PRIMARY KEY,
+            card_num VARCHAR (255),
+            client_id INT (11) NOT NULL,                        =>> way [1]: add foreign key
+            FOREIGN KEY (client_id) REFERENCES clients(id)      =>> [foreign key] constraint = client_id
+        ) ENGINE = InnoDB;                                      =>> (client_id)  =>> parentheses is a must
+
         =>> CREATE TABLE cards(                             =>> two are the same
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
             client_id INT (11) NOT NULL,
-            FOREIGN KEY (client_id) REFERENCES clients(id)
+            CONSTRAINT ordering                             =>> [constraint] optional = [FK] column name [by default]
+            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> way [2]: add foreign key
+            ON UPDATE CASCADE                               =>> [foreign key] constraint = ordering
+            ON DELETE CASCADE,                              =>> (client_id)  =>> parentheses is a must
         ) ENGINE = InnoDB;
 
-        =>> CREATE TABLE cards(                             =>> two are the same
-            id INT (11) NOT NULL PRIMARY KEY,
-            card_num VARCHAR (255),
-            client_id INT (11) NOT NULL,
-            CONSTRAINT ordering
-            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> if [clients(id)] not primary key = [syntax error]
-            ON UPDATE CASCADE
-            ON DELETE CASCADE,
-        ) ENGINE = InnoDB;
-
-        =>> ALTER TABLE cards ADD UNIQUE (card_num);
+        =>> ALTER TABLE cards ADD UNIQUE (card_num);        =>> two are the same
+        =>> ALTER TABLE cards ADD INDEX (card_num);        =>> two are the same
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = (
-    PDO::MYSQL_aTTR_INIT_COMMAND => "SET NAMES UTF8",
-);
+    PDO::MYSQL_aTTR_INIT_COMMAND => "SET NAMES UTF8",   // [utf8]  =>> uppercase or lowercase
+);                                                      // [utf8]  =>> support arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
     $db -> setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
 }catch($PDOException $e){
     echo "Failed" . $e -> getMessage();
-};
-
-
+};          // [getmessage()] [getLine()] [getCode()]  =>> in [try & catch] by default
 
 ?>

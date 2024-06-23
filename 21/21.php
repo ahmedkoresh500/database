@@ -1,13 +1,15 @@
 <?php
 
 /*
-    * foreign key: [part 6]:
+    * foreign key: [part 6]: relationships:
         =>> [one to one]        =>> visa number owned by one client
-        =>> [one to many]       =>> more than one address
+        =>> [one to many]       =>> more than [one address] [one order]
         =>> [many to many]
 
     * [phpmyadmin]: =>> [many to many]
-        =>> mysql -u root
+        =>> mysql -u root -p
+        =>> enter password                                  =>> [""] no password
+
         =>> show databases;
         =>> use elzero;
 
@@ -20,7 +22,7 @@
         =>> CREATE TABLE market_membership(
             client_id INT (11) NOT NULL,
             market_id INT (11) NOT NULL,
-            PRIMARY KEY (client_id, market_id),             // composite primary key
+            PRIMARY KEY (client_id, market_id),             // [composite primary key]
             CONSTRAINT client                               // without add
             FOREIGN KEY (client_id) REFERENCES clients(id)
             ON UPDATE CASCADE
@@ -45,8 +47,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // uppercase or lowercase [utf8], [UTF8]
-);                                                          // support Arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

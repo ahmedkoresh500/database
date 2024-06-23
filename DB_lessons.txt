@@ -19,8 +19,9 @@
 
 15- [primary key] costraint
 16- foreign key [part 1] constraint
-17- foreign key [part 2]  [CREATE TABLE try2();], [DROP TABLE try2;], [TRUNCATE try2;]
-18- foreign key [part 3]  [ON UPDATE, ON DELETE]
+17- foreign key [part 2]  [CREATE TABLE try2();], [DROP TABLE try2;], [TRUNCATE try2;] [CASCADE effect]
+18- foreign key [part 3]  [ON UPDATE, ON DELETE] =>> [restrict] [no action] [cascade] [set null]
+
 19- foreign key [part 4]  [one to one]
 20- foreign key [part 5]  [one to many]
 21- foreign key [part 6]  [many to many]

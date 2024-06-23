@@ -50,9 +50,6 @@ try{
 };
 
 
-
-
-
 /*
     $stm = $db -> prepare("");      =>> two are the same
     $stm -> execute();

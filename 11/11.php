@@ -14,7 +14,7 @@
         =>> show table status                                           =>> show status of all tables
         =>> ;                                                           =>> semicolon is a must
 
-        * [datatype] is a must
+        * [datatype] is a must:
         =>> ALTER TABLE students ADD password VARCHAR(255);             =>> add new column  =>> at end [by default]
         =>> ALTER TABLE students ADD age int (11) FIRST;                =>> add new column  =>> at first
         =>> ALTER TABLE students ADD userName VARCHAR(255) AFTER name;  =>> add new column  =>> after specific column
