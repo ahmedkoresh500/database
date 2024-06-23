@@ -29,8 +29,8 @@
 
 22- string functions [part 1]	[LEFT(), MID(), RIGHT()]
 23- string functions [part 2]	[LENGTH()] [CHAR_LENGTH() = CHARACTER_LENGTH()]
-24- string functions [part 3]	[LCASE() = LOWER()] [UCASE() = UPPER()]
-25- string functions [part 4]	[REPEAT(), REPLACE(), REVERSE()]
+24- string functions [part 3]	[LCASE() = LOWER()] [UCASE() = UPPER()]		[limit = 1] = 1 row
+25- string functions [part 4]	[REPEAT(), REPLACE(), REVERSE()]		[limit = 2] = 2 rows
 26- string functions [part 5]	[CONCAT(), CONCAT_WS()]
 27- string functions [part 6]	[INSERT()]
 28- string functions [part 7]	[TRIM(), LTRIM(), RTRIM()]

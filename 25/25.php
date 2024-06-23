@@ -25,8 +25,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",           // uppercase or lowercase
-);                                                              // support Arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",           // [utf8] uppercase or lowercase
+);                                                              // [UTF8] support Arabic in dataBase
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
@@ -34,6 +34,5 @@ try{
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
-
 
 ?>

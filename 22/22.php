@@ -3,7 +3,8 @@
 /*
     * string functions: [part 1]:
         [1] LEFT (column name, length)
-        [2] MID(column name, position, length)          // first letter = [index 1]
+        [2] MID(column name, position, length)          // position included
+                                                        // first letter = [index 1]
         [3] RIGHT (column name, length)
 
 
@@ -17,11 +18,10 @@
         =>> INSERT INTO `states` (id, country) VALUES (2, 'Saudi Arabia');
         =>> INSERT INTO `states` (id, country) VALUES (3, 'Canada');
 
-        =>> SELECT LEFT (country, 3) FROM states;
-
-        =>> SELECT MID(country, 5, 3) FROM states;          // [space] after [MID]  =>> syntax error
-
-        =>> SELECT RIGHT (country, 3) FROM states;
+        =>> SELECT LEFT (country, 3) FROM states;           // [1] first 3 letters
+        =>> SELECT MID(country, 2, 3) FROM states;          // [3] medium letters
+                                                            // [3] [space] after [MID] = syntax error
+        =>> SELECT RIGHT (country, 3) FROM states;          // [2] last 3 letters
 
 */
 
@@ -30,12 +30,12 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // uppercase or lowercase
-);                                                          // support arabic in databBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support arabic in databBase
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);  // [try], [catch]  =>> Exception mode
+    $db -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);  // [try & catch]  =>> Exception mode
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
