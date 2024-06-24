@@ -2,12 +2,12 @@
 
 /*
     * string functions: [part 7]:
-        [1] TRIM( methods[LEADING | TRAILING | BOTH]  [remove string]  FROM [column name])
+        [1] TRIM( methods[LEADING | TRAILING | BOTH]  [string_removed]  FROM [column name])
         [2] LTRIM(column name)                  =>> trim space only
         [3] RTRIM(column name)                  =>> trim space only
 
-        * [methods]         =>> optional        by default [BOTH]
-        * [remove string]   =>> optional        by default [space]
+        * [methods]         =>> optional        =>> by default [BOTH]
+        * [string_removed]  =>> optional        =>> by default [remove space]
 
     * [phpmyadmin]:
         =>> SELECT trim_col, TRIM(trim_col) AS trimmed FROM try;
@@ -39,8 +39,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
-);                                                          // support Arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

@@ -2,23 +2,24 @@
 
 /*
     * string functions: [part 4]:
-        [1] REPEAT(column name, repeated numbers)
-        [2] REPLACE(column name, "from", "to")
+        [1] REPEAT(column name, repeated_number)
+        [2] REPLACE(column name, "current_text", "new_text")
         [3] REVERSE(column name)
 
     * [phpmyadmin]:
-        =>> SELECT COMMENT, REPEAT (comment, 3) AS repeated FROM comments;
+        =>> SELECT COMMENT, REPEAT (comment, 3) AS repeated_column FROM comments;
 
-        =>> SELECT COMMENT, REPLACE (comment, "you", "me") AS repeated FROM comments;
+        =>> SELECT COMMENT, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
 
-        =>> SELECT COMMENT, REVERSE (comment) AS reversed FROM comments;
-
-
-        =>> SELECT comment, REPLACE (comment, "you", "me") AS replaced FROM comments;
-        =>> UPDATE comments SET comment = REPLACE (comment, "you", "me");               =>> special query
+        =>> SELECT COMMENT, REVERSE (comment) AS reversed_column FROM comments;
 
 
-    * cloumn name  =>> not sensitive to  =>> upper and lower cases
+        =>> SELECT comment, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
+        =>> UPDATE comments SET comment = REPLACE (comment, "zx", "zy");            =>> special query
+
+
+    * [cloumn name] [table name]  =>> not sensitive to  =>> upper and lower cases
+        =>> select COMMENT from COMMENTS;
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
