@@ -2,21 +2,37 @@
 
 /*
     * string functions: [part 8]:
-        [1] LPAD(column name, returned letters number, padded string)  =>> like padding
-        [2] RPAD(column name, returned letters number, padded string)  =>> like padding
+        [1] LPAD(column name, returned_letters_number, padded string)  =>> like padding
+        [2] RPAD(column name, returned_letters_number, padded string)  =>> like padding
 
     * [phpmyadmin]:
-        =>> SELECT text, LPAD(text, 5, '') AS padded_text FROM try;     =>> result = NULL
+        * [first letter] = index 1
+
+        [1] returned_letters_number stored  =>> result = NULL
+        =>> SELECT text, LPAD(text, 2, '') AS padded_text FROM try;
+
+        [2] returned_letters_number stored  =>> result = NULL
+        =>> SELECT text, LPAD(text, 3, '') AS padded_text FROM try;
+
+        [3] returned_letters_number stored  =>> result = NULL
+        =>> SELECT text, LPAD(text, 4, '') AS padded_text FROM try;
+
         =>> SELECT text, LPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
+        =>> SELECT text, LPAD(text, 4, '$') AS padded_text FROM try;    =>> first letter = index 1
+        =>> SELECT text, LPAD(text, 6, '$') AS padded_text FROM try;    =>> first letter = index 1
+
         =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
+        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
+        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
+
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
-);                                                          // support Arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

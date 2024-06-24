@@ -2,36 +2,54 @@
 
 /*
     * string functions: [part 7]:
-        [1] TRIM( methods[LEADING | TRAILING | BOTH]  [string_removed]  FROM [column name])
-        [2] LTRIM(column name)                  =>> trim space only
-        [3] RTRIM(column name)                  =>> trim space only
+        [1] TRIM( methods[LEADING--TRAILING--BOTH] [string_to_be_trimmed] FROM [column name])
+        [2] LTRIM(column name)                  =>> trim space only  =>> from left
+        [3] RTRIM(column name)                  =>> trim space only  =>> from right
 
-        * [methods]         =>> optional        =>> by default [BOTH]
-        * [string_removed]  =>> optional        =>> by default [remove space]
+        * [methods]                 =>> optional        =>> by default [BOTH]
+        * [string_to_be_trimmed]    =>> optional        =>> by default [trim space from left and right]
 
     * [phpmyadmin]:
-        =>> SELECT trim_col, TRIM(trim_col) AS trimmed FROM try;
+        * [space] after [trim] [ltrim] [rtrim] = syntax error
+        * [space] after [MID] = [syntax error]
+    
+        [1] SELECT ordinal_column,
+            LENGTH(ordinal_column) AS length_before_trim,
+            LENGTH( TRIM(ordinal_column) ) AS length_After_trim     =>> two are the same
+            FROM try;                                               =>> [1] trim space [from left] [and right]
 
-        =>> SELECT trim_col, TRIM(LEADING FROM trim_col) AS trimmed FROM try;   =>> [space] after [trim] = [syntax error]
-        =>> SELECT trim_col, TRIM(TRAILING FROM trim_col) AS trimmed FROM try;  =>> [space] after [trim] = [syntax error]
-        =>> SELECT trim_col, TRIM(BOTH FROM trim_col) AS trimmed FROM try;      =>> [space] after [trim] = [syntax error]
-                                                                                =>> [space] after [MID] = [syntax error]
+        [2] SELECT ordinal_column,
+            LENGTH(ordinal_column) AS length_before_trim,           =>> two are the same
+            LENGTH( TRIM(BOTH FROM ordinal_column) ) AS length_After_trim
+            FROM try;                                               =>> [2] trim space [from left] [and right]
 
-        =>> SELECT trim_col,
-        TRIM(trim_col) AS trimmed,
-        CHAR_LENGTH(trim_col) AS length_before_trim,
-        CHAR_LENGTH(TRIM(trim_col)) AS length_after_trim
-        FROM try;
+        [3] SELECT ordinal_column,
+            LENGTH(ordinal_column) AS length_before_trim,
+            LENGTH( TRIM(LEADING FROM ordinal_column) ) AS length_After_trim
+            FROM try;                                               =>> [3] trim space only  =>> from left
 
-        =>> SELECT trim_col, TRIM(BOTH '@' FROM trim_col) AS trimmed FROM try;
-        =>> SELECT trim_col, TRIM(LEADING '@' FROM trim_col) AS trimmed FROM try;
-        =>> SELECT trim_col, TRIM(TRAILING '@' FROM trim_col) AS trimmed FROM try;
-        =>> SELECT trim_col, TRIM('@' FROM trim_col) AS trimmed FROM try;
+        [4] SELECT ordinal_column,
+            LENGTH(ordinal_column) AS length_before_trim,
+            LENGTH( TRIM(TRAILING FROM ordinal_column) ) AS length_After_trim
+            FROM try;                                               =>> [4] trim space only  =>> from right
+
+
+        =>> SELECT ordinal_column, TRIM(LEADING '@' FROM ordinal_column) AS trimmed FROM try;
+        =>> SELECT ordinal_column, TRIM(TRAILING '@' FROM ordinal_column) AS trimmed FROM try;
+        =>> SELECT ordinal_column, TRIM(BOTH '@' FROM ordinal_column) AS trimmed FROM try;
+        =>> SELECT ordinal_column, TRIM('@' FROM ordinal_column) AS trimmed FROM try;
 
 
     * [LTRIM] & [RTRIM]:
-        =>> SELECT trim_col, LTRIM(trim_col) AS trimmed FROM try;       =>> trim space only
-        =>> SELECT trim_col, RTRIM(trim_col) AS trimmed FROM try;       =>> trim space only
+        =>> SELECT ordinal_column,
+            length (ordinal_column) AS length_before_trim,
+            length ( LTRIM(ordinal_column) ) AS length_after_trim   = [TRIM(LEADING FROM ordinal_column)]
+            FROM try;                                   =>> trim space only =>> from left
+
+        =>> SELECT ordinal_column,
+            length (ordinal_column) AS length_before_trim,
+            length ( RTRIM(ordinal_column) ) AS length_after_trim   = [TRIM(TRAILING FROM ordinal_column)]
+            FROM try;                                   =>> trim space only =>> from right
 
 */
 
@@ -50,4 +68,3 @@ try{
 };
 
 ?>
-
