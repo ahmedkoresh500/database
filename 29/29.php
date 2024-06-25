@@ -6,24 +6,21 @@
         [2] RPAD(column name, returned_letters_number, padded string)  =>> like padding
 
     * [phpmyadmin]:
-        * [first letter] = index 1
+        =>> [first letter] = index 1
 
-        [1] returned_letters_number stored  =>> result = NULL
-        =>> SELECT text, LPAD(text, 2, '') AS padded_text FROM try;
+    [1] padded string =>> empty
+        =>> SELECT text, LPAD(text, 2, '') AS padded_text FROM try;  [2]<stored[3]  =>> [result = 2 letters]
+        =>> SELECT text, LPAD(text, 3, '') AS padded_text FROM try;  [3]=stored[3]  =>> [result = 3 letters]
+        =>> SELECT text, LPAD(text, 4, '') AS padded_text FROM try;  [4]>stored[3]  =>> [result = NULL]
 
-        [2] returned_letters_number stored  =>> result = NULL
-        =>> SELECT text, LPAD(text, 3, '') AS padded_text FROM try;
+    [2] padded string =>> not empty
+        =>> SELECT text, LPAD(text, 4, '$') AS padded_text FROM try;  [4]<stored[5]  =>> [result = 4 letters]
+        =>> SELECT text, LPAD(text, 5, '$') AS padded_text FROM try;  [5]=stored[5]  =>> [result = 5 letters]
+        =>> SELECT text, LPAD(text, 6, '$') AS padded_text FROM try;  [6]>stored[5]  =>> [result = 6 letters]
 
-        [3] returned_letters_number stored  =>> result = NULL
-        =>> SELECT text, LPAD(text, 4, '') AS padded_text FROM try;
-
-        =>> SELECT text, LPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
-        =>> SELECT text, LPAD(text, 4, '$') AS padded_text FROM try;    =>> first letter = index 1
-        =>> SELECT text, LPAD(text, 6, '$') AS padded_text FROM try;    =>> first letter = index 1
-
-        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
-        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
-        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;    =>> first letter = index 1
+        =>> SELECT text, RPAD(text, 4, '$') AS padded_text FROM try;  [4]<stored[5]  =>> [result = 4 letters]
+        =>> SELECT text, RPAD(text, 5, '$') AS padded_text FROM try;  [5]=stored[5]  =>> [result = 5 letters]
+        =>> SELECT text, RPAD(text, 6, '$') AS padded_text FROM try;  [6]>stored[5]  =>> [result = 6 letters]
 
 */
 

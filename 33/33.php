@@ -2,18 +2,18 @@
 
 /*
     * [Date + Time] functions: [part 2]:
-        [1] DAYNAME(date)
-        [2] DAYOFWEEK(date)         =>> [sunday = day 1], [saturday = day 7]
-        [3] DAYOFMONTH(date)
-        [4] DAYOFYEAR(date)
+        [1] DAYNAME(column name or date)
+        [2] DAYOFWEEK(column name or date)          =>> [sunday = day 1], [saturday = day 7]
+        [3] DAYOFMONTH(column name or date)
+        [4] DAYOFYEAR(column name or date)
 
     * [phpmyadmin]:
         =>> SELECT date, DAYNAME(date) AS day_name FROM try2;
-        =>> SELECT DAYNAME('2020-07-19');
+        =>> SELECT DAYNAME('1998-11-28') AS my_birthday;
 
-        =>> SELECT date, DAYOFWEEK(date) FROM try2;
-        =>> SELECT date, DAYOFMONTH(date) FROM try2;
-        =>> SELECT date, DAYOFYEAR(date) FROM try2;
+        =>> SELECT DAYNAME(CURRENT_TIME()) AS day_name, DAYOFWEEK(CURRENT_TIME) AS day_of_Week;
+        =>> SELECT DAYNAME(CURRENT_DATE()) AS day_name, DAYOFMONTH(CURRENT_DATE) AS day_of_month;
+        =>> SELECT DAYNAME(CURRENT_TIMESTAMP()) AS day_name, DAYOFYEAR(CURRENT_TIMESTAMP) AS day_of_year;
 */
 
 
@@ -21,8 +21,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // uppercase or lowercase
-);                                                          //support Arabic in dataBase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support Arabic in database
 
 
 try{
@@ -31,6 +31,5 @@ try{
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
-
 
 ?>

@@ -4,7 +4,8 @@
     * dataType: [Date & Time]:
         [1] Date            YYY-MM-DD
         [2] DateTime        YYY-MM-DD HH:MM:SS
-        [3] TimeStamp       YYY-MM-DD HH:MM:SS      =>> [current_timestamp()]  =>> when insert data
+        [3] TimeStamp       YYY-MM-DD HH:MM:SS      =>> [now()] [current_timestamp()] [current_timestamp]
+                                                    =>> when insert data  =>> lesson [32]
         [4] Time            HH:MM:SS
         [5] Year            YYY | YY
             =>> 69  = 2069
