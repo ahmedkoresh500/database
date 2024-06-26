@@ -27,23 +27,24 @@
 21- foreign key [part 6]  [many to many]
 
 
-22- string functions [part 1]	[LEFT(), MID(), RIGHT()]
+22- string functions [part 1]	[LEFT(), MID(), RIGHT()]	=>> space after [MID] = syntax error
 23- string functions [part 2]	[LENGTH()] [CHAR_LENGTH() = CHARACTER_LENGTH()]
 24- string functions [part 3]	[LCASE() = LOWER()] [UCASE() = UPPER()]		[limit = 1] = 1 row
 25- string functions [part 4]	[REPEAT(), REPLACE(), REVERSE()]		[limit = 2] = 2 rows
 26- string functions [part 5]	[CONCAT(), CONCAT_WS()]
 27- string functions [part 6]	[INSERT()]	[MID()]  =>> space after [MID] = syntax error
-28- string functions [part 7]	[TRIM(), LTRIM(), RTRIM()]
+28- string functions [part 7]	[TRIM(), LTRIM(), RTRIM()]	=>> space after [TRIM] [LTRIM] [RTRIM] = syntax error
 29- string functions [part 8]	[LPad(), RPad()]
 
 30- Numeric functions [part 1]	[CEIL, FLOOR, ROUND]
 31- Numeric functions [part 2]	[MOD, TRUNCATE, POW]
 
-32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()]
-33- [Date + Time] functions  [part 2]	[DAYNAME(date), DAYOFWEEK(date), DAYOFMONTH(date), DAYOFYEAR(date)]
+32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()] =>> 
+33- [Date + Time] functions  [part 2]	[DAYNAME(date), DAYOFWEEK(date), DAYOFMONTH(date), DAYOFYEAR(date)]  =>> 
 34- [Date + Time] functions  [part 3]	[MONTH(), MONTHNAME(), HOUR(), MINUTE()]
 35- [Date + Time] functions  [part 4]   [DATEDIFF()]
-36- [Date + Time] functions  [part 5]	[LAST_DAY(), DATE_ADD(), DATE_SUB()]
+36- [Date + Time] functions  [part 5]	[LAST_DAY(), DATE_ADD(), DATE_SUB()]	
+								=>> space after [DATE_ADD()] [DATE_SUB()] = syntax error
 
 37- comparison functions [part 1]	[BETWEEN ... AND ...] [NOT BETWEEN ... AND ...]
 38- comparison functions [part 2]	[IN (...)] [NOT IN (...)]

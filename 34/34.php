@@ -13,6 +13,10 @@
 
         =>> SELECT date, MONTH(date) FROM try2;
         =>> SELECT date, MONTHNAME(date) FROM try2;
+
+        =>> [column] empty      =>> value = [NUL]
+        =>> [column] not empty  =>> value = [0]     =>> [date] written, [hour] not written
+                                                                        or [minute] not written
 */
 
 

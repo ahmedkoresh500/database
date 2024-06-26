@@ -7,7 +7,10 @@
 
 
     * [phpmyadmin]:
-        =>> SELECT date, DATEDIFF( CURRENT_DATE(), date ) AS number_of_days FROM try2;
+        =>> SELECT date, DATEDIFF (CURRENT_DATE, date) AS date_difference FROM try2;
+
+        =>> [column] empty      =>> result = [NULL]
+        =>> [column] not empty  =>> result = [0] or [value]
 */
 
 ?>
