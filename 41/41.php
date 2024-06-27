@@ -2,38 +2,32 @@
 
 /*
     * logical operators:
-        [1] [&&] = [AND]    =>> [all conditions true]
-        [2] [||] = [OR]     =>> [all conditions true] or [one condition true]
-        [3] XOR             =>> [one of the two conditions]
-        [3] [!] = [NOT]
+        [1] [AND] = [&&]    =>> [all conditions true]
+        [2] [OR] = [||]     =>> [all conditions true] or [one of the conditions]
+        [3] [XOR]           =>> [all conditions true] or [one of the conditions]
+                            =>> [data in common] not displayed
+                            =>> [data in more than one condition] not displayed
+        [3] [NOT] = [!]
 
     * [phpmyadmin]:
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' && id > 100;   =>> two are the same   [&&]
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' AND id < 100;  =>> two are the same   [AND]
+    [1] [AND] [&&]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' AND id >= 6;  =>> two are the same   [AND]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' && id >= 6;   =>> two are the same   [&&]
 
+    [2] [OR] [||]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' OR id >= 8;   =>> two are the same [OR]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' || id > 8;    =>> two are the same [||]
 
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' || id > 100;    =>> two are the same [||]
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' OR id < 100;    =>> two are the same [OR]
+    [3] [XOR]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id = 4;                       [XOR]
+        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id = 8;                       [XOR]
 
+    [4] [NOT] [!]
+        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';          =>> comparison functions [39]
+        =>> SELECT * FROM clients WHERE NOT userName like '%sama';          =>> comparison functions [39]
 
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id > 100;                        [XOR]
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id < 100;                        [XOR]
-
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id >= 10;
-        =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id <= 10;
-
-        =>> SELECT * FROM clients WHERE userName like '%EX%' XOR id >= 12;
-        =>> SELECT * FROM clients WHERE userName like '%EX%' XOR id <= 12;
-
-        * one condition true  =>> no problem
-        * two conditions true:
-            [1] result from one condition  =>> not repeated in result from the other condition  =>> two results printed
-            [2] result from one condition  =>> repeated in result from the other condition  =>> the repeated result never printed
-
-
-        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';          =>> comparsion functions [39]
-        =>> SELECT * FROM clients WHERE NOT userName like '%sama';                              [!]
-        =>> SELECT * FROM clients WHERE ! userName like '%sama';            =>> syntax error    [!]
+        =>> SELECT * FROM clients WHERE userName ! like '%sama';            = no result [!]
+        =>> SELECT * FROM clients WHERE ! userName like '%sama';            = no result [!]
 */
 
 
@@ -43,7 +37,6 @@ $password = "";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
-
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
