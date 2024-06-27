@@ -10,7 +10,7 @@
         =>> SELECT * FROM clients WHERE id NOT IN (6, 7, 8);
 
         =>> SELECT * FROM try2 WHERE date IN ('2023-01-31', '2023-02-1');   =>> must decide time if found
-        =>> SELECT * FROM try2 WHERE 'date' NOT IN ('2023-01-31 23:31:38'); =>> ['] is a must
+        =>> SELECT * FROM try2 WHERE date NOT IN ('2023-01-31 23:31:38');   =>> ['] is a must
 */
 
 
@@ -18,9 +18,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
-
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

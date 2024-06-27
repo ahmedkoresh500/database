@@ -2,8 +2,8 @@
 
 /*
     * logical operators:
-        [1] [&&] = [AND]    =>> all conditions true
-        [2] [||] = [OR]     =>> all conditions true   =>> one condition true
+        [1] [&&] = [AND]    =>> [all conditions true]
+        [2] [||] = [OR]     =>> [all conditions true] or [one condition true]
         [3] XOR             =>> [one of the two conditions]
         [3] [!] = [NOT]
 
@@ -14,8 +14,6 @@
 
         =>> SELECT * FROM clients WHERE userName LIKE '%sama' || id > 100;    =>> two are the same [||]
         =>> SELECT * FROM clients WHERE userName LIKE '%sama' OR id < 100;    =>> two are the same [OR]
-
-
 
 
         =>> SELECT * FROM clients WHERE userName LIKE '%sama' XOR id > 100;                        [XOR]
@@ -43,7 +41,7 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
 
 

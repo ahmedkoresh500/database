@@ -2,31 +2,33 @@
 
 /*
     * comparison operators:
-        [1] [=] equal
-        [2] [!=] [<>] not equal
+        [1] [>] greater than
+        [2] [>=] greater than equal
 
-        [3] [>] greater than
-        [4] [>=] greater than equal
+        [3] [<] smaller than
+        [4] [<=] smaller than equal
 
-        [5] [<] smaller than
-        [6] [<=] smaller than equal
+        [5] [=] equal
+        [6] [!=] [<>] not equal
 
 
     * [phpmyadmin]:
-        =>> SELECT * FROM try2 WHERE number = 4;
-        =>> SELECT * FROM try2 WHERE number > 4;
-        =>> SELECT * FROM try2 WHERE number >= 4;
-        =>> SELECT * FROM try2 WHERE number < 4;
-        =>> SELECT * FROM try2 WHERE number <= 4;
-        =>> SELECT * FROM try2 WHERE number != 4;
-        =>> SELECT * FROM try2 WHERE number <> 4;
+        =>> SELECT * FROM try2 WHERE number > 7;
+        =>> SELECT * FROM try2 WHERE number >= 7;
+
+        =>> SELECT * FROM try2 WHERE number < 12;
+        =>> SELECT * FROM try2 WHERE number <= 12;
+
+        =>> SELECT * FROM try2 WHERE number = 12;
+        =>> SELECT * FROM try2 WHERE number != 12;      =>> two are the same
+        =>> SELECT * FROM try2 WHERE number <> 12;      =>> two are the same
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8";       // uppercase or lowercase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
 
 try{

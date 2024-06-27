@@ -14,7 +14,7 @@
         =>> SELECT * FROM clients WHERE userName LIKE '%i%';        =>> contains [i]
         =>> SELECT * FROM clients WHERE userName LIKE '%ex%';
 
-        =>> SELECT * FROM clients WHERE userName LIKE 'z%i';        =>> [start = z], [end = i]
+        =>> SELECT * FROM clients WHERE userName LIKE 'z%i';        =>> [start=z], [end=i]
 
         =>> SELECT * FROM clients WHERE userName LIKE '%a%a%';
 
@@ -29,8 +29,10 @@
         =>> SELECT * FROM clients WHERE userName LIKE '%%';         =>> [result = all]
         =>> SELECT * FROM clients WHERE userName LIKE '%_%';        =>> [result = all] except empty
 
-        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';  =>> two are the same
-        =>> SELECT * FROM clients WHERE NOT userName LIKE '%sama';  =>> two are the same  =>> [41] logical operators
+        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';  =>> two are the same [at start] or [at end]
+        =>> SELECT * FROM clients WHERE NOT userName LIKE '%sama';  =>> two are the same [at start] or [at end]
+                                                                    =>> not [in middle]
+                                                                    =>> [41] logical operators
 
 
     * [%] wild char = wild character
@@ -40,9 +42,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",       // uppercase or lowercase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
-
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
@@ -51,6 +52,4 @@ try{
     echo "Failed" . $e -> getMessage();
 };
 
-
 ?>
-
