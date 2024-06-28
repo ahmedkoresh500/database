@@ -4,22 +4,20 @@
     * information functions:
 
     * [phpmyadmin]:
-        =>> SELECT USER();          =>> userName who connected with dataBase, [domain] = [host name]
-        =>> SELECT SESSION_USER();  =>> userName who connected with dataBase, [domain] = [host name]
-        =>> SELECT SYSTEM_USER();   =>> userName who connected with dataBase, [domain] = [host name]
+        =>> SELECT USER();          =>> userName who's in access to [domain]  =>> 3 are the same
+        =>> SELECT SESSION_USER();  =>> userName who's in access to [domain]  =>> 3 are the same
+        =>> SELECT SYSTEM_USER();   =>> userName who's in access to [domain]  =>> 3 are the same
 
-        =>> SELECT VERSION();       =>> dataBase version = mysql version
+        =>> SELECT VERSION();       =>> version of current [mysql database] [MariaDB]
 
-
-        =>> SELECT CHARSET( USER() );   =>> character set = الترميز = utf8
-        =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) AS converted;      =>> two are the same
-        =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) converted;         =>> two are the same
+        =>> SELECT CHARSET( USER() );                       =>> CHARSET = character set = الترميز = utf8
+        =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) converted;      =>> two are the same
+        =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) AS converted;   =>> two are the same
         =>> SELECT CHARSET( USER() );
 
-        =>> SELECT DATABASE();          =>> dataBase name i'm working on
+        =>> SELECT DATABASE();          =>> [current database] i'm working on
 
-        =>> SELECT CONNECTION_ID();     =>> userName connection id       =>> elzero used in a project
-
+        =>> SELECT CONNECTION_ID();     =>> userName connection id  =>> used in specific projects
 */
 
 
@@ -27,7 +25,7 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",        // uppercase or lowercase
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
 );
 
 try{
@@ -36,6 +34,5 @@ try{
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
-
 
 ?>
