@@ -11,14 +11,16 @@
             PRIMARY KEY (id)                    =>> colon here = syntax error
         ) ENGINE = InnoDB;
 
-        =>> SELECT * FROM contribution ORDER BY name;           =>> two are the same  =>> INSERTED FIRST
+        =>> SELECT * FROM contribution ORDER BY name;           =>> two are the same
         =>> SELECT * FROM contribution ORDER BY name ASC;       =>> two are the same  =>> Ahmed 114 => 115
-        =>> SELECT * FROM contribution ORDER BY name DESC;      =>> INSERTED FIRST    =>> Ahmed 114 => 115
+        =>> SELECT * FROM contribution ORDER BY name DESC;                            =>> Ahmed 114 => 115
+                                        =>> [name] equal  =>> INSERTED FIRST  =>> [ASC]or[DESC]
 
         =>> SELECT * FROM contribution ORDER BY name, points;
         =>> SELECT * FROM contribution ORDER BY name, points ASC;   =>> Ahmed 114 =>> 115  =>> the same in [osama]
         =>> SELECT * FROM contribution ORDER BY name, points DESC;  =>> Ahmed 115 =>> 114  =>> the same in [osama]              
                                                                     =>> order [name] first
+                                                                    =>> [points] desc only
         
         =>> SELECT name, points FROM contribution GROUP BY name;    =>> return one value =>> from repeated values =>> and ordered ASC
         =>> SELECT name, SUM(points) FROM contribution GROUP BY name;
