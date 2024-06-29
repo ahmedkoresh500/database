@@ -2,6 +2,7 @@
 
 /*
     * [JOIN] = [INNER JOIN]:
+    * [WHERE] instead of [ON]  = no error       =>> [INNER JOIN] only
 
     * [phpmyadmin]:
         =>> SELECT u.id userID,
@@ -16,12 +17,12 @@
             langName AS favouriteLang 
             FROM users u INNER JOIN langs l
             WHERE l.id = u.lang_id;                 =>> [WHERE] instead of [ON] = no error
-
+                                                    =>> [INNER JOIN] only
         =>> SELECT u.id user_id,
             name userName,
             langName AS favouriteLang 
             FROM users u INNER JOIN langs l
-            WHERE l.id = u.lang_id;                 =>> [WHERE] instead of [ON] = no error
+            WHERE l.id = u.lang_id;                 =>> [WHERE] instead of [ON] = no error  =>> [INNER JOIN] only
                                                     =>> [WHERE langs.id = u.lang_id] = syntax error
 
     * space between [INNER JOIN] [LEFT JOIN] [RIGHT JOIN] [FULL JOIN]

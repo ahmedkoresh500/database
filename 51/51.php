@@ -6,9 +6,9 @@
     * [phpmyadmin]:
         =>> SELECT *
         FROM users INNER JOIN langs
-        USING (lang_id);            // [USING] instead of [ON]  =>> column the same name at the two tables
+        USING (lang_id);            // [USING] instead of [ON]  =>> [PRIMARY] [FOREIGN] the same name
 
-    * [MARIADB] website
+    * [MariaDB] website
     * [MYSQL] website
     * [MYSQLTUTORIAL.org] website
 
