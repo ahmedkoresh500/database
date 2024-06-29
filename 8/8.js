@@ -1,3 +1,0 @@
-/*
-    * deal with databases:
-*/

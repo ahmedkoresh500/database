@@ -1,3 +1,0 @@
-/*
-    * dataType: [string type]:
-*/

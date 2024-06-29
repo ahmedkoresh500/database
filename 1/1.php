@@ -1,3 +1,5 @@
+<?php
+
 /*
     * introduction:
 
@@ -25,4 +27,4 @@
     * MySQL without GUI [graphical user interface]
 */
 
-
+?>

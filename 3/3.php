@@ -1,3 +1,5 @@
+<?php
+
 /*
     * [xampp] program  =>> start mysql  =>> syntax error:
         =>> c:/xampp/mysql  
@@ -47,3 +49,5 @@
         =>> INSERT INTO items VALUES (NULL, 'bicycle');
         =>> INSERT INTO osama.items (id, name) VALUES (NULL, 'bicycle');
 */
+
+?>

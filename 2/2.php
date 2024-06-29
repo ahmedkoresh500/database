@@ -1,3 +1,5 @@
+<?php
+
 /*
 
     * [tools], [methods] to modify data in database
@@ -37,3 +39,4 @@
         [3] [mysql work bench] software program
 */
 
+?>

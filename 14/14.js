@@ -1,3 +1,0 @@
-/*
-    * [NOT NULL], [UNIQUE]:
-*/
