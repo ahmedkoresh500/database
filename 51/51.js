@@ -1,3 +1,0 @@
-/*
-    * the end and references:
-*/

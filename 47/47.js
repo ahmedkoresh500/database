@@ -1,3 +1,0 @@
-/*
-    * [JOIN simulation]:
-*/

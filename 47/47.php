@@ -4,33 +4,41 @@
     * [JOIN simulation]:
 
     * [phpmyadmin]:
-        =>> CREATE TABLE users(
+        =>> CREATE TABLE users_1(
             id INT (11) NOT NULL UNIQUE AUTO_INCREMENT,
             name VARCHAR (255) NOT NULL,
             lang_id INT (11) NOT NULL,
-            FOREIGN KEY (lang_id) REFERENCES langs(id)
+            FOREIGN KEY (lang_id) REFERENCES langs(id)      =>> by default [CONSTRAINT = lang_id] 
             ON UPDATE CASCADE
             ON DELETE CASCADE
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;           =>> [utf8]or[UTF8], [latin1] 
                                                         =>> [utf-8]or[UTF-8] = syntax error
-                                                        =>> <meta charset="utf-8">
+                                                        =>> [<meta charset="utf-8">]
 
-        =>> ALTER TABLE users ADD PRIMARY KEY (id);     // ERROR: incorrect index name =>> id
-        =>> ALTER TABLE users DROP id;
-        =>> ALTER TABLE users ADD id INT (11) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY FIRST;   // = no error
+        =>> ALTER TABLE users_1 ADD PRIMARY KEY (id);   = [syntax error] = incorrect index name 'id'
+        =>> ALTER TABLE users_1 CHANGE id id int (11) NOT NULL UNIQUE PRIMARY KEY;
+                                                        = [syntax error] = incorrect index name 'id'
 
 
-    * id INT NOT NULL UNIQUE AUTO_INCREMENT,      // [AUTO_INCREMENT] without [UNIQUE] = syntax error =>> need one key
-    * id INT (11) NOT NULL UNIQUE AUTO_INCREMENT, // [AUTO_INCREMENT] without [UNIQUE] = syntax error =>> need one key
-    * id INT (11) AUTO_INCREMENT NOT NULL UNIQUE, // [AUTO_INCREMENT] without [UNIQUE] = syntax error =>> need one key
-    * id INT (11) UNIQUE AUTO_INCREMENT NOT NULL, // [AUTO_INCREMENT] without [UNIQUE] = syntax error =>> need one key
+    * [AUTO_INCREMENT] must be [added with]or[after] [UNIQUE]or[PRIMARY KEY] attribute  =>> has [key name]
+    * can't drop [UNIQUE]or[PRIMARY KEY] attribute and [AUTO_INCREMENT] is found
+    * drop [AUTO_INCREMENT] first then drop [UNIQUE]or[PRIMARY KEY] attribute
+    [1]
+    =>> ALTER TABLE users_1 modify id INT (11) NOT NULL;    =>> drop [AUTO_INCREMENT]  =>> 2 are the same
+    =>> ALTER TABLE users_1 CHANGE id id INT (11) NOT NULL; =>> drop [AUTO_INCREMENT]  =>> 2 are the same
+    
+    [2]
+    =>> ALTER TABLE users_1 DROP id;                        =>> drop [AUTO_INCREMENT]
+    =>> ALTER TABLE users_1 ADD id INT (11) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY FIRST; =>> no error
 
-        =>> SELECT * FROM users JOIN langs;     =>> two are the same  =>> show each element with all elements in the other table
-        =>> SELECT * FROM users, langs;         =>> two are the same  =>> show each element with all elements in the other table
 
+    * display each element [in table 1]  =>> with all elements [in table 2]
+        =>> SELECT * FROM users, langs;         =>> two are the same
+        =>> SELECT * FROM users JOIN langs;     =>> two are the same
+
+        =>> SELECT * FROM users, langs WHERE langs.id = users.lang_id;      =>> two are the same
         =>> SELECT * FROM users JOIN langs                                  =>> two are the same
             ON langs.id = users.lang_id;
-        =>> SELECT * FROM users, langs WHERE langs.id = users.lang_id;      =>> two are the same
 */
 
 
@@ -43,7 +51,7 @@ $options = array(
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);     // [try & catch] =>> Exception mode
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // [try & catch] =>> Exception mode
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
