@@ -55,10 +55,10 @@
 
 42- control flow functions [IF]
 43- control flow functions [CASE]
-44- Arithmetic operators			[1]
+44- Arithmetic operators			[1]	[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
 45- information functions
-46- [GROUP BY] & [ORDER BY] & [HAVING]
+46- [GROUP BY] & [ORDER BY] & [HAVING]			[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
 47- JOIN simulation
 48- Alias names

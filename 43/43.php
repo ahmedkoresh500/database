@@ -15,6 +15,7 @@
                 ELSE result                                 =>> [ELSE] optional
             END AS ...
 
+
     * [EXAMPLES]:
         [1] SELECT number,
             CASE

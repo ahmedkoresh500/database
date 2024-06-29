@@ -22,7 +22,7 @@
             name VARCHAR (255) NOT NULL,
             days INT (11) NOT NULL,
             ratePerDay INT (11) NOT NULL
-        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
+        ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
     =>> SELECT name, days, ratePerDay, days * ratePerDay AS salary FROM try3;
     =>> SELECT name, days, ratePerDay, days * ratePerDay + 100 AS 'salary+Bonus' FROM try3;
