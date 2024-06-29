@@ -60,7 +60,7 @@
 45- information functions
 46- [GROUP BY] & [ORDER BY] & [HAVING]			[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
-47- JOIN simulation
+47- JOIN simulation		[AUTO_INCREMENT]
 48- Alias names
 49- [INNER JOIN]
 50- [LEFT], [RIGHT] JOIN:  	[FULL JOIN] [why PHP two times]  =>> two errors

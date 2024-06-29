@@ -1,26 +1,28 @@
 <?php
 
 /*
-    * [INNER JOIN]:
+    * [JOIN] = [INNER JOIN]:
 
     * [phpmyadmin]:
-        =>> SELECT u.id AS user_id,
-            name user_name,
-            langName favouriteLang 
+        =>> SELECT u.id userID,
+            name userName,
+            langName AS favouriteLang 
             FROM users u, langs l
-            WHERE l.id = u.lang_id;
+            WHERE l.id = u.lang_id;                 * if [users] used = syntax error
+                                                    * if [langs] used = syntax error
 
-        =>> SELECT u.id AS user_id,
-            name user_name,
-            langName favouriteLang 
+        =>> SELECT u.id user_id,
+            name userName,
+            langName AS favouriteLang 
             FROM users u INNER JOIN langs l
-            ON l.id = u.lang_id;
+            WHERE l.id = u.lang_id;                 =>> [WHERE] instead of [ON] = no error
 
-        =>> SELECT u.id AS user_id,
-            name user_name,
-            langName favouriteLang 
+        =>> SELECT u.id user_id,
+            name userName,
+            langName AS favouriteLang 
             FROM users u INNER JOIN langs l
-            WHERE l.id = u.lang_id;                 // [WHERE] instead of [ON]  =>> no error
+            WHERE l.id = u.lang_id;                 =>> [WHERE] instead of [ON] = no error
+                                                    =>> [WHERE langs.id = u.lang_id] = syntax error
 
     * space between [INNER JOIN] [LEFT JOIN] [RIGHT JOIN] [FULL JOIN]
     * JOIN for more than 2 tables
