@@ -17,7 +17,7 @@
                         =>> maximum = 255 character [v.5.0.3]   = 65.535 [v.5.0.3+]
 
     * [TEXT] vs [BLOB]:
-        [1] TEXT    =>> have charset            =>> have hz         =>> to support arabic
+        [1] TEXT    =>> have charset            =>> have hz         =>> to support Arabic
                     =>> store string
 
         [2] BLOB    =>> don't have charset      =>> don't have hz   =>> for photos and other files
@@ -35,7 +35,7 @@ $userName = "root";
 $password = "";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",   // [utf8] uppercase or lowercase
-);                                                      // [utf8] support arabic in database
+);                                                      // [utf8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
@@ -50,11 +50,10 @@ for($i=1 ; $i<=10 ; $i++){
     $stm -> execute();
 };
 
-
 /*
-    create table osama.identity(
-    id int (11) not null unique
-    ) engine = innodb;
+    CREATE TABLE osama.identity(
+        id INT (11) NOT NULL UNIQUE
+    ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 */
 
 /*

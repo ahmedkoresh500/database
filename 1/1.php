@@ -7,8 +7,8 @@
     * MySQL:    =>> relational database
                 =>> [database system] or [software product]
 
-    * mysql features:
-        [1] commonly used in web application
+    * MySQL features:
+        [1] commonly used in web applications
 
         [2] created by swedish company
         [3] now, owned by oracle
@@ -18,7 +18,7 @@
         [6] easy to use
 
         [7] MySQL uses SQL standard
-        [8] MySQL is [RDBMS]    =>> relational  =>> related relations [tables]
+        [8] MySQL is [RDBMS]    =>> R = relational = [related relations] [related tables]
 
     * xampp:
         [1] [apache]        =>> host =>> local host = local server

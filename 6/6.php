@@ -3,10 +3,10 @@
 /*
     * dataType: [Date & Time]:
         [1] Date            YYY-MM-DD
-        [2] DateTime        YYY-MM-DD HH:MM:SS
-        [3] TimeStamp       YYY-MM-DD HH:MM:SS      =>> [now()] [current_timestamp()] [current_timestamp]
+        [2] Time            HH:MM:SS
+        [3] DateTime        YYY-MM-DD HH:MM:SS
+        [4] TimeStamp       YYY-MM-DD HH:MM:SS      =>> [now()] [current_timestamp()] [current_timestamp]
                                                     =>> when insert data  =>> lesson [32]
-        [4] Time            HH:MM:SS
         [5] Year            YYY | YY
             =>> 69  = 2069
             =>> 70  = 1970      =>> start of the date range

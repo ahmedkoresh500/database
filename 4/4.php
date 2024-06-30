@@ -3,16 +3,16 @@
 /*
     * connect with PDO:
 
-    [1] [command prompt]    =>> desktop                                     =>> windows, linux, mac
-    [2] [shell]     =>> [windows+R]  =>> write [cmd]  =>> press [enter]     =>> windows, linux, mac
-    [3] [xampp] program     =>> press shell
+    [1] [command prompt]    =>> desktop                                  =>> windows, linux, mac
+    [2] [shell]     =>> [windows+R]  =>> write [cmd]  =>> press [enter]  =>> windows, linux, mac
+    [3] [xampp] program     =>> press [shell]
     [4] [phpmyadmin]  =>> press [SQL]
+
+    =>> ALTER TABLE items CHANGE city name VARCHAR (255) NOT NULL;      =>> change [column name]
+    =>> ALTER TABLE items CHANGE name city VARCHAR (255) NOT NULL;      =>> change [column name]
 
     =>> DROP TABLE items;               =>> two are the same
     =>> DROP TABLE products.items;      =>> two are the same
-
-    =>> ALTER TABLE items CHANGE city name VARCHAR (255) NOT NULL;      =>> change column name
-    =>> ALTER TABLE items CHANGE name city VARCHAR (255) NOT NULL;      =>> change column name
 */
 
 $host = 'localhost';
@@ -40,7 +40,7 @@ $options = array(
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // [try], [catch]  =>> exception mode
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // in [try & catch] exception mode
     //echo "you are connected";
 
     // way [1]:
@@ -53,7 +53,7 @@ try{
     $db -> exec($query);
 
 }catch(PDOException $e){
-    echo 'Failed ' . $e -> getMessage(); // [getMessage()], [getLine()], [getCode()] in [try & catch] by default
-};
+    echo 'Failed ' . $e -> getMessage();
+};                          // [getMessage()], [getLine()], [getCode()] in [try & catch] by default
 
 ?>

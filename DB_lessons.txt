@@ -1,7 +1,7 @@
 1-  MYSQL introduction
 2-  the needed tools
 3-  information about [phpmyadmin] & [command line]
-4-  connect with PDO
+4-  connect with PDO		[$stm=$db->prepare("query")] [$stm->execute();] ----- [$db->exec($query);]
 
 5-  dataType: [integer type]
 6-  dataType: [Date & Time] type
