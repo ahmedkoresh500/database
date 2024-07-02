@@ -11,13 +11,13 @@
 
 9-  deal with tables  [part 1] 	=>> [create table]
 10- deal with tables  [part 2]  =>> [rename table], [storage engine]
-11- deal with tables  [part 3]  =>> [ALTER]
-12- deal with tables  [part 4]  =>> [ALTER revision]
+11- deal with tables  [part 3]  =>> [ALTER]	[structure -> drop specific column] [structure -> move columns]
+12- deal with tables  [part 4]  =>> [ALTER revision]	[CONVERT TO CHARACTER SET]  =>> lesson [45] 
 
 13- [constraint intro]
 14- [NOT NULL], [UNIQUE] constraint
 
-15- [primary key] costraint
+15- [primary key] constraint
 16- foreign key [part 1] constraint
 17- foreign key [part 2]  [CREATE TABLE try2();], [DROP TABLE try2;], [TRUNCATE try2;] [CASCADE effect]
 18- foreign key [part 3]  [ON UPDATE, ON DELETE] =>> [restrict] [no action] [cascade] [set null]
@@ -57,7 +57,7 @@
 43- control flow functions [CASE]
 44- Arithmetic operators			[1]	[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
-45- information functions
+45- information functions				[CHARSET( CONVERT(USER() USING latin1 ) )]  =>> lesson [12]
 46- [GROUP BY] & [ORDER BY] & [HAVING]			[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
 47- JOIN simulation		[AUTO_INCREMENT]

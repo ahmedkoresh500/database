@@ -5,21 +5,21 @@
 
     * [phpmyadmin]:
         =>> mysql -u root -p
-        =>> enter password                                      =>> [""] no password
+        =>> enter password                                  =>> [""] no password  =>> open [MariaDB]
 
-        =>> show databases;
-        =>> use elzero;
+        =>> show databases;                                 =>> [;] is a must
+        =>> use elzero;                                     =>> semicolon is a must
 
         =>> ALTER TABLE students ADD country VARCHAR (255) NOT NULL;  =>> add new column  =>> at end [by default]
         =>> ALTER TABLE students DROP country;                        =>> drop column
 
-        =>> ALTER TABLE students ADD country VARCHAR (255) NOT NULL FIRST;             =>> at first
-        =>> ALTER TABLE students MODIFY country VARCHAR (255) NOT NULL AFTER userName; =>> after specific column
+        =>> ALTER TABLE students ADD country VARCHAR (255) NOT NULL FIRST;  =>> add new column => at first
+        =>> ALTER TABLE students MODIFY country VARCHAR (255) NOT NULL AFTER userName; => after specific column
 
 */
 
 # [unix shell] comment style
-# * one line comment  =>> like [//]
+# one line comment  =>> like [//]
 
 $dsn = "mysql:host=localhost;dbname=elzero";
 $userName = "root";

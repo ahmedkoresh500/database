@@ -2,15 +2,18 @@
 
 /*
     * [NOT NULL], [UNIQUE]:
-    =>> database name  =>> table name  =>> empty        =>> 3 are the same  =>> to empty table
-    =>> table  =>> operation  =>> truncate              =>> 3 are the same  =>> to empty table
-    =>> TRUNCATE elzero.students;                       =>> 3 are the same  =>> to empty table
+        =>> ALTER TABLE students ADD UNIQUE (id);   =>> [parentheses] is a must  =>> way [1] [keyname = id]
+        =>> ALTER TABLE students ADD INDEX (id);    =>> [parentheses] is a must  =>> way [2] [keyname = id_1]
+        =>> ALTER TABLE students DROP INDEX id;     =>> [no parentheses] is a must
 
-    =>> ALTER TABLE students ADD UNIQUE (id);           =>> parentheses is a must   =>> way [1]
-    =>> ALTER TABLE students ADD INDEX (id);            =>> parentheses is a must   =>> way [2]
-    =>> ALTER TABLE students DROP INDEX id;             =>> no parentheses
+        =>> ALTER TABLE students MODIFY id INT (11) NOT NULL UNIQUE;             =>> way [3]
 
-    =>> ALTER TABLE students MODIFY id INT (11) NOT NULL UNIQUE;                =>> way [3]
+    * empty specific table:
+        =>> press [database]  =>> press [empty] for specific table          =>> 4 are the same
+        =>> press [table]  =>> press [operations]  =>> press [truncate]     =>> 4 are the same
+        
+        =>> TRUNCATE students;                                              =>> 4 are the same
+        =>> DELETE FROM elzero.students;                                    =>> 4 are the same
 */
 
 ?>

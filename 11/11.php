@@ -7,8 +7,8 @@
         =>> mysql -u root -p
         =>> enter password                                  =>> [""] no password
 
-        =>> show databases;
-        =>> use osama;
+        =>> show databases;                                 =>> [;] is amust
+        =>> use osama;                                      =>> semicolon is a must
 
 
         =>> show table status                                           =>> show status of all tables
@@ -16,7 +16,7 @@
 
         * [datatype] is a must:
         =>> ALTER TABLE students ADD password VARCHAR(255);             =>> add new column  =>> at end [by default]
-        =>> ALTER TABLE students ADD age int (11) FIRST;                =>> add new column  =>> at first
+        =>> ALTER TABLE students ADD age INT (11) FIRST;                =>> add new column  =>> at first
         =>> ALTER TABLE students ADD userName VARCHAR(255) AFTER name;  =>> add new column  =>> after specific column
 
     [2] [DROP]:
@@ -46,7 +46,7 @@ $db = new PDO($dsn, $userName, $password, $options);
 
 try{
     $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}catch(PDOEception $e){
+}catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };
 

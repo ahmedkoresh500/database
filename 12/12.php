@@ -12,8 +12,13 @@
 
         =>> ALTER TABLE students MODIFY id INT (11), CHANGE name name CHAR (255);
 
+    * related to lesson [45]:
         =>> ALTER TABLE students CONVERT TO CHARACTER SET utf8;     =>> all columns [utf8]
         =>> ALTER TABLE students CONVERT TO CHARACTER SET latin1    =>> all columns [latin1]
+
+        =>> CREATE TABLE students(
+                id INT (11) NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY      =>> [,] here = syntax error
+        )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 */
 
 
