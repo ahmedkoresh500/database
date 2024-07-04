@@ -10,22 +10,22 @@
         =>> CREATE TABLE cards(                             =>> two are the same
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
-            client_id INT (11) NOT NULL,                        =>> way [1]: add foreign key
-            FOREIGN KEY (client_id) REFERENCES clients(id)      =>> [foreign key] constraint = client_id
-        ) ENGINE = InnoDB;                                      =>> (client_id)  =>> parentheses is a must
+            client_id INT (11) NOT NULL,                    =>> way [1]: add foreign key
+            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = (orders_ibfk_1) by default
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;           =>> (client_id)  =>> parentheses is a must
 
         =>> CREATE TABLE cards(                             =>> two are the same
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
             client_id INT (11) NOT NULL,
-            CONSTRAINT ordering                             =>> [constraint] optional = [FK] column name [by default]
+            CONSTRAINT ordering                             =>> [constraint] optional
             FOREIGN KEY (client_id) REFERENCES clients(id)  =>> way [2]: add foreign key
             ON UPDATE CASCADE                               =>> [foreign key] constraint = ordering
             ON DELETE CASCADE,                              =>> (client_id)  =>> parentheses is a must
-        ) ENGINE = InnoDB;
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
         =>> ALTER TABLE cards ADD UNIQUE (card_num);        =>> two are the same
-        =>> ALTER TABLE cards ADD INDEX (card_num);        =>> two are the same
+        =>> ALTER TABLE cards ADD INDEX (card_num);         =>> two are the same
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";

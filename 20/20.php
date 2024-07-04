@@ -8,38 +8,38 @@
 
     * [one to many] [client -> orders] =>> primary key [one]  =>> foreign key [many]
         =>> mysql -u root -p
-        =>> enter password                                      =>> [""] no password
+        =>> enter password                                  =>> [""] no password  =>> open [MariaDB]
         
-        =>> show databases;
-        =>> use elzero;
+        =>> show databases;                                 =>> [;] is a must
+        =>> use elzero;                                     =>> [;] is a must
 
-        =>> CREATE TABLE comments(                              =>> two are the same
+        =>> CREATE TABLE comments(                      =>> two are the same
             id INT(11) NOT NULL PRIMARY KEY,
             comment VARCHAR (255) NOT NULL,
             client_id INT (11) NOT NULL,
-            FOREIGN KEY (client_id) REFERENCES clients(id)      // [1] CONSTRAINT optional = [FK] column name [by default]
+            FOREIGN KEY (client_id) REFERENCES clients(id) // [1] CONSTRAINT optional => shown in [relation view]
         ) ENGINE = InnoDB;
 
-        =>> CREATE TABLE comments(                              =>> two are the same
+        =>> CREATE TABLE comments(                      =>> two are the same
             id INT(11) NOT NULL PRIMARY KEY,
             comment VARCHAR (255) NOT NULL,
             client_id INT (11) NOT NULL,
-            CONSTRAINT commenting                               // [2] [CONSTRAINT] optional = [FK] column name [by default]
-            FOREIGN KEY (client_id) REFERENCES clients(id)      // add foreign key
-            ON UPDATE CASCADE                                   // [foreign key] constraint = commenting
-            ON DELETE CASCADE,                                  // (client_id)  =>> parentheses is a must
-        ) ENGINE = InnoDB;
+            CONSTRAINT commenting                           // [2] [CONSTRAINT] optional => shown in [relation view]
+            FOREIGN KEY (client_id) REFERENCES clients(id)  // add foreign key
+            ON UPDATE CASCADE                               // [foreign key] constraint = commenting
+            ON DELETE CASCADE,                              // (client_id)  =>> parentheses is a must
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
-        =>> ALTER TABLE comments
+        [1] ALTER TABLE comments
             DROP CONSTRAINT commenting;         =>> two are the same
 
-        =>> ALTER TABLE comments
+        [2] ALTER TABLE comments
             DROP FOREIGN KEY commenting;        =>> two are the same
 
         =>> ALTER TABLE comments
-            ADD CONSTRAINT commenting                       // [CONSTRAINT] optional = [FK] column name [by default]
+            ADD CONSTRAINT commenting                       // [2] [CONSTRAINT] optional => shown in [relation view]
             FOREIGN KEY (client_id) REFERENCES clients(id)  // add foreign key
-            ON UPDATE CASCADE                               // foreign key constraint = commenting
+            ON UPDATE CASCADE                               // [foreign key] constraint = commenting
             ON DELETE CASCADE;                              // (client_id)  =>> parentheses is a must
 
 */
@@ -47,13 +47,13 @@
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
-$options = array(
+$options = array(                                       // [->] = syntax error
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",   // [utf8] uppercase or lowercase
-);                                                      // [utf8] support arabic in database
+);                                                      // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);     // [try & catch] Excception mode
 }catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };              // [getMessage()] [getLine()] [getCode()]  =>> in [try & catch] by default
