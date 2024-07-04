@@ -33,12 +33,12 @@ $userName = "root";
 $password = "";
 $options = (
     PDO::MYSQL_aTTR_INIT_COMMAND => "SET NAMES UTF8",   // [utf8]  =>> uppercase or lowercase
-);                                                      // [utf8]  =>> support arabic in database
+);                                                      // [UTF8]  =>> support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
-    $db -> setAttribute(PDO::ATTR_ERRMODE,ERRMODE_EXCEPTION);
-}catch($PDOException $e){
+    $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // [try & catch] Exception mode
+}catch(PDOException $e){
     echo "Failed" . $e -> getMessage();
 };          // [getmessage()] [getLine()] [getCode()]  =>> in [try & catch] by default
 
