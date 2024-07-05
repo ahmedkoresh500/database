@@ -7,27 +7,26 @@
         [3] REVERSE(column name)
 
     * [phpmyadmin]:
-        =>> SELECT COMMENT, REPEAT (comment, 3) AS repeated_column FROM comments;
+        [1] SELECT COMMENT, REPEAT (comment, 2) AS repeated_column FROM comments;
 
-        =>> SELECT COMMENT, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
+        [2] SELECT COMMENT, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
 
-        =>> SELECT COMMENT, REVERSE (comment) AS reversed_column FROM comments;
-
+        [3] SELECT COMMENT, REVERSE (comment) AS reversed_column FROM comments;
 
         =>> SELECT comment, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
         =>> UPDATE comments SET comment = REPLACE (comment, "zx", "zy");            =>> special query
 
-
-    * [cloumn name] [table name]  =>> not sensitive to  =>> upper and lower cases
+    * [cloumn name] [table name]  =>> sensitive to  =>> upper and lower cases           =>> CREATE
+    * [cloumn name] [table name]  =>> not sensitive to  =>> upper and lower cases       =>> SELECT
         =>> select COMMENT from COMMENTS;
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
-$options = array(
+$options = array(                                               // [->] = syntax error
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",           // [utf8] uppercase or lowercase
-);                                                              // [UTF8] support Arabic in dataBase
+);                                                              // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

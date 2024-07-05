@@ -7,25 +7,25 @@
         =>> [many to many]
 
     * [phpmyadmin]:  =>> [one to one] relationship:
-        =>> CREATE TABLE cards(                             =>> two are the same
-            id INT (11) NOT NULL PRIMARY KEY,
-            card_num VARCHAR (255),
-            client_id INT (11) NOT NULL,                    =>> way [1]: add foreign key
-            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = (orders_ibfk_1) by default
-        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;           =>> (client_id)  =>> parentheses is a must
-
-        =>> CREATE TABLE cards(                             =>> two are the same
+        [1] CREATE TABLE cards(
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
             client_id INT (11) NOT NULL,
-            CONSTRAINT ordering                             =>> [constraint] optional
-            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> way [2]: add foreign key
-            ON UPDATE CASCADE                               =>> [foreign key] constraint = ordering
-            ON DELETE CASCADE,                              =>> (client_id)  =>> parentheses is a must
+            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = (orders_ibfk_1) by default
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;           =>> (client_id)  =>> parentheses is a must
+
+        [1] CREATE TABLE cards(
+            id INT (11) NOT NULL PRIMARY KEY,
+            card_num VARCHAR (255),
+            client_id INT (11) NOT NULL,
+            CONSTRAINT ordering                             =>> [constraint] optional => shown in [relation view]
+            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = ordering
+            ON UPDATE CASCADE                               =>> (client_id)  =>> parentheses is a must
+            ON DELETE CASCADE,
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
-        =>> ALTER TABLE cards ADD UNIQUE (card_num);        =>> two are the same
-        =>> ALTER TABLE cards ADD INDEX (card_num);         =>> two are the same
+        =>> ALTER TABLE cards ADD UNIQUE (card_num);    =>> two are the same    =>> keyname = [card_num]
+        =>> ALTER TABLE cards ADD INDEX (card_num);     =>> two are the same    =>> keyname = [card_num_1]
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";

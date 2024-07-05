@@ -3,34 +3,35 @@
 /*
     * foreign key: [part 5]: relationships:
         =>> [one to one]        =>> visa number owned by one client
-        =>> [one to many]       =>> more than [one address] [one order]
+        =>> [one to many]       =>> more than [one address] [one order] [one comment]
         =>> [many to many]
 
-    * [one to many] [client -> orders] =>> primary key [one]  =>> foreign key [many]
+    * [client -> orders] [one to many]  =>> primary key [one]  =>> foreign key [many]
         =>> mysql -u root -p
         =>> enter password                                  =>> [""] no password  =>> open [MariaDB]
         
         =>> show databases;                                 =>> [;] is a must
         =>> use elzero;                                     =>> [;] is a must
 
-        =>> CREATE TABLE comments(                      =>> two are the same
+        [1] CREATE TABLE comments(                      =>> two are the same
             id INT(11) NOT NULL PRIMARY KEY,
             comment VARCHAR (255) NOT NULL,
             client_id INT (11) NOT NULL,
             FOREIGN KEY (client_id) REFERENCES clients(id) // [1] CONSTRAINT optional => shown in [relation view]
         ) ENGINE = InnoDB;
 
-        =>> CREATE TABLE comments(                      =>> two are the same
+        [1] CREATE TABLE comments(                      =>> two are the same
             id INT(11) NOT NULL PRIMARY KEY,
             comment VARCHAR (255) NOT NULL,
             client_id INT (11) NOT NULL,
             CONSTRAINT commenting                           // [2] [CONSTRAINT] optional => shown in [relation view]
-            FOREIGN KEY (client_id) REFERENCES clients(id)  // add foreign key
-            ON UPDATE CASCADE                               // [foreign key] constraint = commenting
-            ON DELETE CASCADE,                              // (client_id)  =>> parentheses is a must
+            FOREIGN KEY (client_id) REFERENCES clients(id)  // [foreign key] constraint = commenting
+            ON UPDATE CASCADE                               // (client_id)  =>> parentheses is a must
+            ON DELETE CASCADE,
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
-        [1] ALTER TABLE comments
+    * [commenting] [UNIQUE or INDEX] attribute  =>> not dropped
+        [2] ALTER TABLE comments
             DROP CONSTRAINT commenting;         =>> two are the same
 
         [2] ALTER TABLE comments
@@ -38,9 +39,9 @@
 
         =>> ALTER TABLE comments
             ADD CONSTRAINT commenting                       // [2] [CONSTRAINT] optional => shown in [relation view]
-            FOREIGN KEY (client_id) REFERENCES clients(id)  // add foreign key
-            ON UPDATE CASCADE                               // [foreign key] constraint = commenting
-            ON DELETE CASCADE;                              // (client_id)  =>> parentheses is a must
+            FOREIGN KEY (client_id) REFERENCES clients(id)  // [foreign key] constraint = commenting
+            ON UPDATE CASCADE                               // (client_id)  =>> parentheses is a must
+            ON DELETE CASCADE;
 
 */
 
