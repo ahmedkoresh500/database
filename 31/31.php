@@ -33,9 +33,8 @@
         =>> TRUNCATE test;                                              =>> 4 are the same
         =>> DELETE FROM test;                                           =>> 4 are the same
 
-        =>> DELETE * FROM test;                 = syntax error  =>> must use [where] condition
+        =>> DELETE * FROM test;                 = syntax error  =>> no [*] in delete
 */
-
 
 $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
@@ -43,7 +42,6 @@ $password = "";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",           // [utf8] uppercase or lowercase
 );                                                              // [UTF8] support Arabic in database
-
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

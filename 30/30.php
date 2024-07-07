@@ -11,7 +11,7 @@
             id INT (11) NOT NULL,
             number DOUBLE,              =>> note this datatype
             PRIMARY KEY (id)
-        ) ENGINE = InnoDB;
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
         =>> SELECT number, CEIL (number) AS number_ceiled FROM try1;
         =>> SELECT number, FLOOR (number) AS number_floored FROM try1;
@@ -24,7 +24,6 @@
         =>> round(number, 1)          =>> [3.45 = 3.450 => 3.4] [3.451 => 3.5] [3.46 => 3.5]
 
         =>> round(number, 2)          =>> [3.454 => 3.45] [3.455 => 3.46]
-
 
 */
 

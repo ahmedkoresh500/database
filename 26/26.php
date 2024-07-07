@@ -2,9 +2,9 @@
 
 /*
     * string functions: [part 5]:
-        [1] CONCAT (column name, column name, ..., text)                 =>> text at any place
-        [2] CONCAT_WS (separator, column name, column name, ..., text)   =>> text at any place
-                                                                        =>> separator is a must
+        [1] CONCAT (column name, column name, ..., text)                =>> [text] at any place
+        [2] CONCAT_WS (separator, column name, column name, ..., text)  =>> [text] at any place
+                                                                        =>> [separator] is a must
 
     * [phpmyadmin]:
         =>> SELECT comment, CONCAT(client_id, comment) AS concated FROM comments;
@@ -14,7 +14,7 @@
         =>> SELECT CONCAT_WS("-", client_id, " ", comment) AS concated FROM comments;
         =>> SELECT CONCAT_WS('- ', client_id, REVERSE(comment)) AS concated FROM comments;
 
-        =>> SELECT CONCAT(CONCAT_WS('-', client_id, ' '), comment) AS concated FROM comments;
+        =>> SELECT CONCAT( CONCAT_WS('-', client_id, ' '), comment) AS concated FROM comments;
         =>> SELECT CONCAT_WS( "-", client_id, CONCAT( " ", REVERSE(comment) ) ) AS concated FROM comments;
 */
 

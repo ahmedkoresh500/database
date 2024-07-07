@@ -13,7 +13,7 @@
         =>> replace string
 
     * [phpmyadmin]:
-        =>> SELECT comment, INSERT (comment, 3, 3, "abcde") AS inserted FROM comments;
+        =>> SELECT comment, INSERT (comment, 3, 3, "abcd") AS inserted FROM comments;
 
         =>> SELECT text, INSERT (text, 4, 2, "##") AS inserted from try;
         =>> SELECT text, INSERT (text, 4, 2, id) AS inserted from try;      =>> [new_string_to_be_added]
