@@ -9,7 +9,7 @@
     * [phpmyadmin]:
         =>> SELECT date, DATEDIFF (CURRENT_DATE, date) AS date_difference FROM try2;
 
-        =>> [column] empty      =>> value = [NULL]
+        =>> [column] empty      =>> result = [NULL]
         =>> [column] not empty  =>> result = [0] or [value]
 */
 

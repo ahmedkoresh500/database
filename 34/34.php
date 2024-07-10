@@ -15,8 +15,8 @@
         =>> SELECT date, MONTHNAME(date) FROM try2;
 
         =>> SELECT HOUR(date) FROM try2;
-        =>> [column] empty      =>> value = [NUL]
-        =>> [column] not empty  =>> value = [0]     =>> [date] written, [time] not written
+        =>> [column] empty      =>> result = [NUL]
+        =>> [column] not empty  =>> result = [0]        =>> [date] written, [time] not written
 */
 
 
