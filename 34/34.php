@@ -2,21 +2,21 @@
 
 /*
     * [Date + Time] functions: [part 3]:
-        [1] MONTH(column name)          =>> month number
-        [2] MONTHNAME(column name)      =>> month name
-        [3] HOUR(column name)
-        [4] MINUTE(column name)
+        [1] MONTH(column name or date)          =>> month number
+        [2] MONTHNAME(column name or date)      =>> month name
+        [3] HOUR(column name or date)
+        [4] MINUTE(column name or date)
 
 
     * [phpmyadmin]:
-        =>> INSERT INTO try2 VALUES (2, now());     // [date] column = [VARCHAR]or[DATETIME] = no error
+        =>> INSERT INTO try2 VALUES (2, now());   // [date] column =>> [VARCHAR]or[DATETIME] =>> no error
 
         =>> SELECT date, MONTH(date) FROM try2;
         =>> SELECT date, MONTHNAME(date) FROM try2;
 
+        =>> SELECT HOUR(date) FROM try2;
         =>> [column] empty      =>> value = [NUL]
-        =>> [column] not empty  =>> value = [0]     =>> [date] written, [hour] not written
-                                                                        or [minute] not written
+        =>> [column] not empty  =>> value = [0]     =>> [date] written, [time] not written
 */
 
 
