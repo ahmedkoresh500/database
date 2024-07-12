@@ -9,7 +9,7 @@
 
 
     * [phpmyadmin]:
-        =>> INSERT INTO try2 VALUES (2, now());   // [date] column = [VARCHAR]or[DATETIME] =>> no error
+        =>> INSERT INTO try2 VALUES (2, now());   // if [date] column = [VARCHAR]or[DATETIME] = no error
 
         =>> SELECT date, MONTH(date) FROM try2;
         =>> SELECT date, MONTHNAME(date) FROM try2;

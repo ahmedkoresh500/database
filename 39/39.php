@@ -29,8 +29,8 @@
         =>> SELECT * FROM clients WHERE userName LIKE '%%';         =>> [result = all]
         =>> SELECT * FROM clients WHERE userName LIKE '%_%';        =>> [result = all] except empty
 
-        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';  =>> two are the same [at start] or [at end]
-        =>> SELECT * FROM clients WHERE NOT userName LIKE '%sama';  =>> two are the same [at start] or [at end]
+        =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';  =>> 2 are the same [at start] or [at end]
+        =>> SELECT * FROM clients WHERE NOT userName LIKE '%sama';  =>> 2 are the same [at start] or [at end]
                                                                     =>> not [in middle]
                                                                     =>> [41] logical operators
 

@@ -3,7 +3,7 @@
 /*
     * [Date + Time] functions: [part 4]:
         [1] DATEDIFF(column1[new date], column2[old date])              =>> date difference in days
-                                                                        =>> [date only] [no time]
+                                                                        =>> [date only] [not time]
 
 
     * [phpmyadmin]:
