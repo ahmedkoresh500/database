@@ -2,22 +2,22 @@
 
 /*
     * control flow function: [case]:
-        [1] CASE
+        [1] CASE                                        =>> [1] no column
                 WHEN column = value THEN result
                 WHEN column > value THEN result
                 WHEN column < value THEN result
-                ELSE result                                 =>> [ELSE] optional
+                ELSE result                             =>> [***] [ELSE] optional
             END
 
-        [2] CASE column
+        [2] CASE column                                 =>> [2] there is column
                 WHEN value THEN result
                 WHEN value THEN result
-                ELSE result                                 =>> [ELSE] optional
+                ELSE result                             =>> [***] [ELSE] optional
             END AS ...
 
 
     * [EXAMPLES]:
-        [1] SELECT number,
+        [1] SELECT id, number,
             CASE
                 WHEN number=9 THEN 'not bad'
                 WHEN number>9 THEN 'good'
@@ -25,7 +25,7 @@
             END AS cased
             FROM try2;
 
-        [2] SELECT number,
+        [2] SELECT id, number,
             CASE number
                 WHEN 7 THEN 'not bad'
                 WHEN 8 THEN 'good'

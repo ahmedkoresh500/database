@@ -8,13 +8,21 @@
         [5] [%] modulus
 
     * [phpmyadmin]:
-        =>> SELECT (2*2)+100;
+        =>> SELECT 2*2+100;         =>> 2 are the same
+        =>> SELECT (2*2+100);       =>> 2 are the same
 
-        =>> SELECT (20/2);          =>> result = [10.0000]
-        =>> SELECT ROUND(20/2);     =>> decimal optional  =>> by default [to correct number] lesson: [10]
-        =>> SELECT (20 DIV 2);      =>> result = [10]
+        =>> SELECT 20/2;            =>> result = [10.0000]      =>> 2 are the same
+        =>> SELECT (20/2);          =>> result = [10.0000]      =>> 2 are the same
 
-        =>> SELECT (20%3);
+        =>> SELECT ROUND(20/2);     =>> decimal optional  =>> by default [to correct number] lesson: [30]
+        
+        =>> SELECT 20 DIV 2;        =>> result = [10]       =>> 2 are the same
+        =>> SELECT (20 DIV 2);      =>> result = [10]       =>> 2 are the same
+
+        =>> SELECT 20%3;            =>> 2 are the same
+        =>> SELECT (20%3);          =>> 2 are the same
+
+        =>> SELECT number, number%3 as modulated from try2;
         =>> SELECT number, (number%3) as modulated from try2;
         =>> SELECT number, MOD(number, 3) as modulated from try2;
 

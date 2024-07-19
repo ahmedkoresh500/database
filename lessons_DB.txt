@@ -57,7 +57,7 @@
 43- control flow functions [CASE]
 44- Arithmetic operators			[1]	[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
-45- information functions				[CHARSET( CONVERT(USER() USING latin1 ) )]  =>> lesson [12]
+45- information functions				[CHARSET( CONVERT( USER() USING latin1 ) )]  =>> lesson [12]
 46- [GROUP BY] & [ORDER BY] & [HAVING]			[ENGINE=InnoDB DEFAULT CHARSET=UTF8]
 
 47- JOIN simulation		[AUTO_INCREMENT]

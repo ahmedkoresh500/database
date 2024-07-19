@@ -12,8 +12,11 @@
         =>> ALTER TABLE try2 CHANGE number number INT (11) NULL;
         =>> ALTER TABLE try2 CHANGE date date VARCHAR (255) NULL;
 
-        =>> SELECT date, IF(date IS NULL, 'Not Available', date) FROM try2;     =>> doesn't work
-        =>> SELECT date, IF(date="", 'not available', date) FROM try2;          =>> it works
+        =>> SELECT id, date, IF(date IS NULL, 'Not Available', date) AS conditioned FROM try2;
+                                                                            => works with [NULL] value only
+        =>> SELECT * FROM try2 WHERE date IS NULL;                          => works with [NULL] value only
+        =>> SELECT id, date, IF(date="", 'not available', date) AS conditionedFROM try2;
+                                                                            =>> it works
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";

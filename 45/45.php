@@ -8,16 +8,16 @@
         =>> SELECT SESSION_USER();  =>> userName who's in access to [domain]  =>> 3 are the same
         =>> SELECT SYSTEM_USER();   =>> userName who's in access to [domain]  =>> 3 are the same
 
-        =>> SELECT VERSION();       =>> version of current [mysql database] [MariaDB]
+        =>> SELECT VERSION();       =>> [current version] of mysql database [MariaDB]
 
         =>> SELECT CHARSET( USER() );                       =>> CHARSET = character set = الترميز = utf8
         =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) converted;      =>> two are the same
-        =>> SELECT CHARSET( CONVERT( USER() USING latin1 ) ) AS converted;   =>> two are the same
+        =>> SELECT CHARSET( CONVERT( USER() USING utf8 ) ) AS converted;     =>> two are the same
         =>> SELECT CHARSET( USER() );
 
         =>> SELECT DATABASE();          =>> [current database] i'm working on
 
-        =>> SELECT CONNECTION_ID();     =>> userName connection id  =>> used in specific projects
+        =>> SELECT CONNECTION_ID();     =>> userName [connection id]  =>> used in specific projects
 */
 
 
