@@ -42,16 +42,18 @@
 
 
     * [GROUP BY]:
-        [5] SELECT u.id,
-            name,
+        [5] SELECT u.id userID,
+            name userName,
             langName AS favourite_Lang,
+            l.id langID,
             COUNT(l.langName) repeated_langs              
             FROM users u RIGHT OUTER JOIN langs l   =>> [COUNT(l.id) repeated_langs]  =>> 2 are the same
             ON l.id = u.lang_id                      =>> [PHP] = 2
             GROUP BY l.id;
 
-        [6] SELECT u.id,
-            name,
+        [6] SELECT u.id userID,
+            name AS userName,
+            l.id langID,
             langName AS favouriteLang,
             COUNT(l.langName) repeated_langs        =>> [COUNT(l.id) repeated_langs]  =>> 2 are the same
             FROM users u RIGHT OUTER JOIN langs l       
@@ -59,14 +61,20 @@
             GROUP BY l.id;
 
 
-    * [= syntax error]  =>> no obvious reason
+    * [1], [2] = [syntax error]
         [1] SELECT *
-            FROM users FULL JOIN langs       
+            FROM users FULL JOIN langs
             ON langs.id = users.lang_id;
 
         [2] SELECT *
-            FROM users FULL OUTER JOIN langs       
+            FROM users FULL OUTER JOIN langs    =>> [FULL OUTER JOIN] = syntax error  =>> not exist
             ON users.lang_id = langs.id;
+
+        [3] SELECT *
+            FROM users FULL JOIN langs;
+
+    * [JOIN]:   =>> there is [ON]   = [INNER JOIN]      =>> lesson [47]
+                =>> no [ON]         = [FULL JOIN]
 
     * space between [INNER JOIN] [LEFT JOIN] [RIGHT JOIN] [FULL JOIN]
     * [JOIN] for more than [2 tables]

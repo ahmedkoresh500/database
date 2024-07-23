@@ -26,7 +26,7 @@
                                                     =>> [WHERE langs.id = u.lang_id] = syntax error
 
     * space between [INNER JOIN] [LEFT JOIN] [RIGHT JOIN] [FULL JOIN]
-    * JOIN for more than 2 tables
+    * [JOIN] for more than [2 tables]
 */
 
 

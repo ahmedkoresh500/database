@@ -1,7 +1,7 @@
 <?php
 
 /*
-    * [GROUP BY] & [ORDER BY] & [HAVING]:
+    * [GROUP BY] & [HAVING] & [ORDER BY] :
 
     * [phpmyadmin]:
         =>> CREATE TABLE contribution(
@@ -16,7 +16,7 @@
         =>> SELECT * FROM contribution ORDER BY name;           =>> two are the same
         =>> SELECT * FROM contribution ORDER BY name ASC;       =>> two are the same  =>> Ahmed 114 => 115
         =>> SELECT * FROM contribution ORDER BY name DESC;                            =>> Ahmed 114 => 115
-                    =>> two rows equal in value => like [name]  =>> FIRST INSERTED FIRST  =>> [ASC]or[DESC]
+                =>> two rows equal in value => like [name]  =>> [FIRST INSERTED FIRST] =>> [ASC]or[DESC]
 
         =>> SELECT * FROM contribution ORDER BY name, points;
         =>> SELECT * FROM contribution ORDER BY name, points ASC;   =>> Ahmed 114 =>> 115
@@ -26,17 +26,18 @@
         =>> SELECT * FROM contribution ORDER BY name DESC, points DESC;
 
 
-    [2] [GROUP BY]: 
-        * [1][order ASC]  [2][return one value]  =>> from repeated values =>> first [inserted first]
-        =>> SELECT name, points FROM contribution GROUP BY name;
+    [2] [GROUP BY]: [ASC or DESC]
+        * [1][return one value]  =>> from repeated values =>> [first inserted first]
+        * [2] order [ASC or DESC]
+        =>> SELECT name, points FROM contribution GROUP BY name;       =>> order [ASC]  after [Group] effect
         =>> SELECT name, points FROM contribution GROUP BY name DESC;  =>> order [DESC] after [GROUP] effect
         =>> SELECT * FROM contribution GROUP BY name ORDER BY points;
 
-        =>> SELECT name, SUM(POINTS) from contribution;
-        =>> SELECT name, SUM(points) FROM contribution GROUP BY name;
-        =>> SELECT name, SUM(points) FROM contribution GROUP BY name DESC;
-        =>> SELECT name, SUM(points) FROM contribution GROUP BY name ORDER BY points;
-        =>> SELECT name, SUM(points) FROM contribution GROUP BY name ORDER BY points DESC;
+        =>> SELECT id, name, SUM(POINTS) from contribution;
+        =>> SELECT id, name, SUM(points) FROM contribution GROUP BY name;
+        =>> SELECT id, name, SUM(points) FROM contribution GROUP BY name DESC;
+        =>> SELECT id, name, SUM(points) FROM contribution GROUP BY name ORDER BY points;
+        =>> SELECT id, name, SUM(points) FROM contribution GROUP BY name ORDER BY points DESC;
                                                                     =>> [ORDER] stronger than [GROUP]
 
     [3] [GROUP BY], [ORDER BY]
@@ -45,27 +46,27 @@
             status VARCHAR (255) NOT NULL               =>> colon here = syntax error
         ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-        =>> SELECT status, COUNT(status) FROM orders_1 GROUP BY status;                  =>> 3 are the same
-        =>> SELECT status, COUNT(status) FROM orders_1 GROUP BY status ASC;              =>> 3 are the same
-        =>> SELECT status, COUNT(status) FROM orders_1 GROUP BY status ORDER BY status;  =>> 3 are the same
+        =>> SELECT id, status, COUNT(status) FROM orders_1 GROUP BY status;                  =>> 3 are the same
+        =>> SELECT id, status, COUNT(status) FROM orders_1 GROUP BY status ASC;              =>> 3 are the same
+        =>> SELECT id, status, COUNT(status) FROM orders_1 GROUP BY status ORDER BY status;  =>> 3 are the same
 
-        =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status ORDER BY counted;          =>> two are the same
-        =>> SELECT status, COUNT(status) AS counted FROM orders_1 GROUP BY status ORDER BY COUNT(status); =>> two are the same
+        =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status ORDER BY counted;          =>> 2 are the same
+        =>> SELECT status, COUNT(status) AS counted FROM orders_1 GROUP BY status ORDER BY COUNT(status); =>> 2 are the same
 
-    [4] [GROUP BY], [HAVING]                    = no error
-        [GROUP BY], [WHERE]or[WHERE CLAUSE]     = syntax error
+    [4] [GROUP BY], [HAVING]            = no error
+        [GROUP BY], [WHERE CLAUSE]      = syntax error
         * [column] must be selected when using HAVING
 
-        =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>1;
-        =>> SELECT status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>1;
+        =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>1;
+        =>> SELECT id, status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>1;
 
     [5] [GROUP BY], [HAVING], [ORDER BY] = no error
     [5] [GROUP BY], [ORDER BY], [HAVING] = syntax error
-        =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>=1 ORDER BY counted;                 =>> two are the same
-        =>> SELECT status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>=1 ORDER BY COUNT(status);  =>> two are the same
+        =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>=1 ORDER BY counted;                 =>> two are the same
+        =>> SELECT id, status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>=1 ORDER BY COUNT(status);  =>> two are the same
 
-    * [GROUP BY], [HAVING]                  = no error
-    * [GROUP BY], [WHERE]or[WHERE CLAUSE]   = syntax error      [WHERE CLAUSE] = حيث الشرطيه
+    * [GROUP BY], [HAVING]                           = no error
+    * [GROUP BY], [WHERE CLAUSE][حيث الشرطيه]       = syntax error
     * [column] must be selected when using HAVING
         =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING id=1;  = no error
         =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING id=1;      = syntax error
@@ -74,8 +75,8 @@
     * aggregation functions:
         [1] max
         [2] min
-        [3] count
-        [4] sum
+        [3] sum
+        [4] count
 */
 
 

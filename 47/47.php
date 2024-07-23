@@ -8,7 +8,7 @@
             id INT (11) NOT NULL UNIQUE AUTO_INCREMENT,
             name VARCHAR (255) NOT NULL,
             lang_id INT (11) NOT NULL,
-            FOREIGN KEY (lang_id) REFERENCES langs(id)      =>> by default [CONSTRAINT = lang_id] 
+            FOREIGN KEY (lang_id) REFERENCES langs(id)      =>> by default [CONSTRAINT = users_1_ibfk_1] 
             ON UPDATE CASCADE
             ON DELETE CASCADE
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;           =>> [utf8]or[UTF8], [latin1] 
@@ -34,11 +34,13 @@
 
     * display each element [in table 1]  =>> with all elements [in table 2]
         =>> SELECT * FROM users, langs;         =>> two are the same
-        =>> SELECT * FROM users JOIN langs;     =>> two are the same
+        =>> SELECT * FROM users JOIN langs;     =>> two are the same 
+                                            =>> important note: this [JOIN] = [FULL JOIN] =>> lesson [50]
 
-        =>> SELECT * FROM users, langs WHERE langs.id = users.lang_id;      =>> two are the same
-        =>> SELECT * FROM users JOIN langs                                  =>> two are the same
-            ON langs.id = users.lang_id;
+        =>> SELECT * FROM users, langs 
+            WHERE langs.id = users.lang_id;             =>> two are the same
+        =>> SELECT * FROM users JOIN langs              =>> two are the same
+            ON langs.id = users.lang_id;    =>> important note: this [JOIN] = [INNER JOIN] =>> lesson [50]
 */
 
 
