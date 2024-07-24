@@ -13,9 +13,10 @@
         =>> ALTER TABLE try2 CHANGE date date VARCHAR (255) NULL;
 
         =>> SELECT id, date, IF(date IS NULL, 'Not Available', date) AS conditioned FROM try2;
-                                                                            => works with [NULL] value only
-        =>> SELECT * FROM try2 WHERE date IS NULL;                          => works with [NULL] value only
-        =>> SELECT * FROM try2 WHERE date NOT NULL;
+        =>> SELECT id, date, IF(date IS NOT NULL, 'Available', 'Not Available') AS conditioned FROM try2;
+                                                                    => works with [NULL] value only
+        =>> SELECT * FROM try2 WHERE date IS NULL;                  => works with [NULL] value only
+        =>> SELECT * FROM try2 WHERE date IS NOT NULL;              =>> [true syntax]
         =>> SELECT id, date, IF(date="", 'not available', date) AS conditioned FROM try2;
                                                                             =>> it works
 */
