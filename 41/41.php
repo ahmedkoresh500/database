@@ -27,8 +27,8 @@
         =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';          =>> comparison functions [39]
         =>> SELECT * FROM clients WHERE NOT userName like '%sama';          =>> comparison functions [39]
 
-        =>> SELECT * FROM clients WHERE userName ! like '%sama';            = no result
-        =>> SELECT * FROM clients WHERE ! userName like '%sama';            = no result
+        =>> SELECT * FROM clients WHERE userName ! like '%sama';            =>> result = syntax error
+        =>> SELECT * FROM clients WHERE ! userName like '%sama';            =>> result = syntax error
 
         =>> SELECT * FROM clients WHERE userName != 'osama';
         =>> SELECT * FROM clients WHERE userName <> 'osama';

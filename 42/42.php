@@ -5,7 +5,7 @@
         [1] IF(condition, true_statement, false_statement)
 
     * [phpmyadmin]:
-        =>> SELECT id, number, IF (number>8, 'congrats', 'hard luck') AS conditioned FROM try2;
+        =>> SELECT id, number, IF (number>8, 'congrats', 'hard luck') conditioned FROM try2;
         =>> SELECT id, number, IF(number>8, CONCAT('congrats ', number), CONCAT('hard luck ', number)) AS conditioned FROM try2;
         =>> UPDATE try2 SET number = IF(number<=8, number+10, number);
 
@@ -15,7 +15,8 @@
         =>> SELECT id, date, IF(date IS NULL, 'Not Available', date) AS conditioned FROM try2;
                                                                             => works with [NULL] value only
         =>> SELECT * FROM try2 WHERE date IS NULL;                          => works with [NULL] value only
-        =>> SELECT id, date, IF(date="", 'not available', date) AS conditionedFROM try2;
+        =>> SELECT * FROM try2 WHERE date NOT NULL;
+        =>> SELECT id, date, IF(date="", 'not available', date) AS conditioned FROM try2;
                                                                             =>> it works
 */
 

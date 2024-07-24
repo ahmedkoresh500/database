@@ -1,22 +1,21 @@
 <?php
 
 /*
-    * [Alias names]:
+    * [Alias name]:
 
     * [phpmyadmin]:
         [1] SELECT * FROM users, langs
             WHERE langs.id = users.lang_id;     =>> [written first] [shown first]  =>> [users] -> [langs]
 
-        [2] SELECT id FROM users, langs         = syntax error =>> [id] ambiguous
+        [2] SELECT id FROM users, langs         = syntax error  =>> [id] ambiguous
             WHERE langs.id = users.lang_id;
 
-        [3] SELECT users.id FROM users, langs   = no error =>> [users.id] not ambiguous
+        [3] SELECT users.id FROM users, langs   = true syntax   =>> [users.id] not ambiguous
             WHERE langs.id = users.lang_id;
 
         [4] SELECT users.id, name, langName
             FROM users, langs 
             WHERE langs.id = users.lang_id;
-
 
         * [Alias name]:
         [5] SELECT u.id, name, langName

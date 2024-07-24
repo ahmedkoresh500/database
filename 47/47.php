@@ -35,12 +35,12 @@
     * display each element [in table 1]  =>> with all elements [in table 2]
         =>> SELECT * FROM users, langs;         =>> two are the same
         =>> SELECT * FROM users JOIN langs;     =>> two are the same 
-                                            =>> important note: this [JOIN] = [FULL JOIN] =>> lesson [50]
+                                            =>> important note: [JOIN] = [FULL JOIN] =>> lesson [50]
 
         =>> SELECT * FROM users, langs 
             WHERE langs.id = users.lang_id;             =>> two are the same
         =>> SELECT * FROM users JOIN langs              =>> two are the same
-            ON langs.id = users.lang_id;    =>> important note: this [JOIN] = [INNER JOIN] =>> lesson [50]
+            ON langs.id = users.lang_id;    =>> important note: [JOIN] = [INNER JOIN] =>> lesson [50]
 */
 
 

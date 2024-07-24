@@ -1,7 +1,8 @@
 <?php
 
 /*
-    * [GROUP BY] & [HAVING] & [ORDER BY] :
+    * [GROUP BY] & [HAVING] & [ORDER BY]:       =>> true syntax
+    * [GROUP BY] & [ORDER BY] & [HAVING]:       =>> syntax error
 
     * [phpmyadmin]:
         =>> CREATE TABLE contribution(
@@ -40,6 +41,9 @@
         =>> SELECT id, name, SUM(points) FROM contribution GROUP BY name ORDER BY points DESC;
                                                                     =>> [ORDER] stronger than [GROUP]
 
+        * [column] must be selected when using HAVING
+        * [column] might be selected when using ORDER BY      =>> above [points]
+
     [3] [GROUP BY], [ORDER BY]
         =>> CREATE TABLE orders_1(
             id INT (11) NOT NULL PRIMARY KEY,
@@ -53,22 +57,25 @@
         =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status ORDER BY counted;          =>> 2 are the same
         =>> SELECT status, COUNT(status) AS counted FROM orders_1 GROUP BY status ORDER BY COUNT(status); =>> 2 are the same
 
-    [4] [GROUP BY], [HAVING]            = no error
+    [4] [GROUP BY], [HAVING]            = true syntax
         [GROUP BY], [WHERE CLAUSE]      = syntax error
         * [column] must be selected when using HAVING
+        * [column] mustn't be selected when using ORDER BY
 
         =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>1;
         =>> SELECT id, status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>1;
 
-    [5] [GROUP BY], [HAVING], [ORDER BY] = no error
+    [5] [GROUP BY], [HAVING], [ORDER BY] = true syntax
     [5] [GROUP BY], [ORDER BY], [HAVING] = syntax error
         =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING counted>=1 ORDER BY counted;                 =>> two are the same
         =>> SELECT id, status, COUNT(status) AS counted FROM orders_1 GROUP BY status HAVING COUNT(status)>=1 ORDER BY COUNT(status);  =>> two are the same
 
-    * [GROUP BY], [HAVING]                           = no error
+    * [GROUP BY], [HAVING]                           = true syntax
     * [GROUP BY], [WHERE CLAUSE][حيث الشرطيه]       = syntax error
     * [column] must be selected when using HAVING
-        =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING id=1;  = no error
+    * [column] might be selected when using ORDER BY
+
+        =>> SELECT id, status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING id=1;  = true syntax
         =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status HAVING id=1;      = syntax error
         =>> SELECT status, COUNT(status) counted FROM orders_1 GROUP BY status WHERE id=1;       = syntax error
 
