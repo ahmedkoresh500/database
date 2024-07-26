@@ -15,7 +15,7 @@
 
         =>> SELECT number, CEIL (number) AS number_ceiled FROM try1;
         =>> SELECT number, FLOOR (number) AS number_floored FROM try1;
-        =>> SELECT number, ROUND (number) AS number_rounded FROM try1;       =>> 1.45  = [1 by round]
+        =>> SELECT number, ROUND (number) AS number_rounded FROM try1;   =>> first decimal after point  =>> as it is
         =>> SELECT number, ROUND (number, 1) AS number_rounded FROM try1;    =>> 1.45  = [1.4 by round]
         =>> SELECT number, ROUND (number, 2) AS number_rounded FROM try1;    =>> 1.45  = [1.45 by round]
 

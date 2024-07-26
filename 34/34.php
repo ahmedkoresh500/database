@@ -9,14 +9,16 @@
 
 
     * [phpmyadmin]:
-        =>> INSERT INTO try2 VALUES (2, now());   // if [date] column = [VARCHAR]or[DATETIME] = no error
+        =>> INSERT INTO try2 VALUES (2, now());   // [date] column  = [VARCHAR]     =>> true syntax
+                                                                    = [DATETIME]    =>> true syntax
 
         =>> SELECT date, MONTH(date) FROM try2;
         =>> SELECT date, MONTHNAME(date) FROM try2;
 
-        =>> SELECT HOUR(date) FROM try2;
-        =>> [column] empty      =>> result = [NUL]
-        =>> [column] not empty  =>> result = [0]        =>> [date] written, [time] not written
+        =>> SELECT id, date, HOUR(date) FROM try2;
+
+        * [column] empty      =>> result = [NULL]
+        * [column] not empty  =>> result = [0]        =>> [date] written, [time] not written
 */
 
 

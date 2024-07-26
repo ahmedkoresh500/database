@@ -9,7 +9,7 @@
 
     * [phpmyadmin]:
         =>> SELECT date, DAYNAME(date) AS day_name FROM try2;
-        =>> SELECT DAYNAME('1998-11-28') AS my_birthday;            =>> ['] is a must
+        =>> SELECT DAYNAME('1998-11-28') AS my_birthday;            =>> [']["] is a must
 
         =>> SELECT DAYNAME(CURTIME()) AS day_name, DAYOFWEEK(CURRENT_TIME) AS day_of_Week;
         =>> SELECT DAYNAME(CURDATE()) AS day_name, DAYOFMONTH(CURRENT_DATE) AS day_of_month;

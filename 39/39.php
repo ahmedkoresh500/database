@@ -2,12 +2,15 @@
 
 /*
     * comparison functions: [part 3]:
-        [1] LIKE()                  =>> %  =>> [zero or more characters]
-        [2] NOT LIKE()              =>> _  =>> [one character]
+        [1] LIKE()                      =>> parentheses optional
+        [2] NOT LIKE()                  =>> parentheses optional
+        
+        =>> %  =>> [zero or more characters]
+        =>> _  =>> [one character]
 
     * [phpmyadmin]:
         =>> SELECT * FROM clients WHERE userName = 'osama';
-        =>> SELECT * FROM clients WHERE userName like '%sama';      =>> [zero or more characters]
+        =>> SELECT * FROM clients WHERE userName like ('%sama');    =>> [zero or more characters]
         =>> SELECT * FROM clients WHERE userName LIKE '%ama';       =>> [zero or more characters]
         =>> SELECT * FROM clients WHERE userName LIKE '%ama%';      =>> [zero or more characters]
 
@@ -31,7 +34,6 @@
 
         =>> SELECT * FROM clients WHERE userName NOT LIKE '%sama';  =>> 2 are the same [at start] or [at end]
         =>> SELECT * FROM clients WHERE NOT userName LIKE '%sama';  =>> 2 are the same [at start] or [at end]
-                                                                    =>> not [in middle]
                                                                     =>> [41] logical operators
 
 

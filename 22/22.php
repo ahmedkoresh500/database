@@ -23,10 +23,13 @@
         =>> INSERT INTO `states` (id, country) VALUES (2, 'Saudi Arabia');
         =>> INSERT INTO `states` (id, country) VALUES (3, 'Canada');
 
-        =>> SELECT LEFT (country, 3) FROM states;           // [1] first 3 letters
-        =>> SELECT MID(country, 2, 3) FROM states;          // [3] medium letters [2, 3, 4]
-                                                            // [3] [space] after [MID] = syntax error
-        =>> SELECT RIGHT (country, 3) FROM states;          // [2] last 3 letters
+        =>> SELECT country, LEFT (country, 3) FROM states;      // [1] first 3 letters
+
+        =>> SELECT country, MID(coountry, 2);                   // [length] optional
+        =>> SELECT country, MID(country, 2, 3) FROM states;     // [3] medium letters [2, 3, 4]
+                                                                // [3] [space] after [MID] = syntax error
+
+        =>> SELECT country, RIGHT (country, 3) FROM states;     // [2] last 3 letters
 
 */
 

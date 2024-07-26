@@ -10,7 +10,7 @@
         =>> SELECT date, LAST_DAY(date) FROM try2;
         =>> SELECT date, LAST_DAY(date) AS last_day, DAYNAME(LAST_DAY(date)) AS last_day_name FROM try2;
 
-        =>> SELECT date, DATE_ADD(date, INTERVAL 10 DAY) AS date_Added_10DAYS FROM try2;
+        =>> SELECT date, DATE_ADD(date, INTERVAL 10 DAY) date_Added_10DAYS FROM try2;
         =>> SELECT date, DATE_SUB(date, INTERVAL 13 DAY) AS date_deleted_13DAYs FROM try2;
         =>> SELECT date, DATE_SUB(date, INTERVAL 3 MONTH) AS date_deleted_13MONTHS FROM try2;
 

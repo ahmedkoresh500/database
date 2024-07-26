@@ -13,10 +13,10 @@
         =>> SELECT comment, UPPER (comment) AS uppered_2 FROM comments;
 
         =>> SELECT comment,
-            lcase (comment) as lowered,
-            lower (comment) as lowered,
-            ucase (comment) as uppered,
-            upper (comment) as uppered,
+            lcase (comment) as lowered_1,
+            lower (comment) as lowered_2,
+            ucase (comment) as uppered_1,
+            upper (comment) as uppered_2,
             LENGTH (comment) as num_of_counted_letters              // [-] = syntax error
             from comments order by length (comment) asc limit 2;    // [limit 1] = 1 row
                                                                     // [limit 2] = 2 rows

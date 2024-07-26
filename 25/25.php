@@ -2,9 +2,9 @@
 
 /*
     * string functions: [part 4]:
-        [1] REPEAT(column name, repeated_number)
-        [2] REPLACE(column name, "current_text", "new_text")
-        [3] REVERSE(column name)
+        [1] REPEAT (column name, repeated_number)
+        [2] REPLACE (column name, "current_text", "new_text")
+        [3] REVERSE (column name)
 
     * [phpmyadmin]:
         [1] SELECT COMMENT, REPEAT (comment, 2) AS repeated_column FROM comments;
@@ -16,8 +16,10 @@
         =>> SELECT comment, REPLACE (comment, "zx", "zy") AS replaced_text FROM comments;
         =>> UPDATE comments SET comment = REPLACE (comment, "zx", "zy");            =>> special query
 
-    * [cloumn name] [table name]  =>> sensitive to  =>> upper and lower cases           =>> CREATE
-    * [cloumn name] [table name]  =>> not sensitive to  =>> upper and lower cases       =>> SELECT
+    * [cloumn name] [table name]:
+        [1] CREATE:     sensitive to        =>> upper and lower cases
+        [2] SELECT:     not sensitive to    =>> upper and lower cases
+    * [cloumn name] [table name]  =>>        =>> 
         =>> select COMMENT from COMMENTS;
 */
 

@@ -39,7 +39,7 @@
 30- Numeric functions [part 1]	[CEIL, FLOOR, ROUND]
 31- Numeric functions [part 2]	[MOD, TRUNCATE, POW]
 
-32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()] =>> 
+32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()] =>> lesson []
 33- [Date + Time] functions  [part 2]	[DAYNAME(date), DAYOFWEEK(date), DAYOFMONTH(date), DAYOFYEAR(date)]  =>> 
 34- [Date + Time] functions  [part 3]	[MONTH(), MONTHNAME(), HOUR(), MINUTE()]
 35- [Date + Time] functions  [part 4]   [DATEDIFF()]

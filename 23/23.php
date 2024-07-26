@@ -11,14 +11,14 @@
     * [phpmyadmin]:
     =>> INSERT INTO comments (`id`, `comment`, `client_id`) VALUES ('3', '€', '6');
 
-    =>> SELECT LENGTH(comment) FROM comments;
-    =>> SELECT comment, LENGTH(comment) AS num_of_counted_letters FROM comments;    [Euro = 3 characters]
-    =>> SELECT comment, CHAR_LENGTH(comment) AS counted_letters FROM comments;      [Euro = 1 character]
-    =>> SELECT comment, CHARACTER_LENGTH(comment) AS counted_letters FROM comments; [Euro = 1 character]
+    =>> SELECT comment, LENGTH(comment) FROM comments;                              [yen]  = 3 characters
+    =>> SELECT comment, LENGTH(comment) AS num_of_counted_letters FROM comments;    [Euro] = 3 characters
+    
+    =>> SELECT comment, CHAR_LENGTH(comment) AS counted_letters FROM comments;      [yen]  = 1 character
+    =>> SELECT comment, CHARACTER_LENGTH(comment) AS counted_letters FROM comments; [Euro] = 1 character
 
-    * [yen] [euro] =>> multi-byte characters:
-    * [alt + 0165] = [¥] Yen sign
-    * [alt + 0128] = [€] Euro sign
+    * [alt + 0165] = [¥] Yen sign       =>> multi-byte character
+    * [alt + 0128] = [€] Euro sign      =>> multi-byte character
 */
 
 $dsn = "mysql:host=localhost;dbName=states";
