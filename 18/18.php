@@ -24,12 +24,20 @@
         ON UPDATE SET NULL                                  =>> (client_id)  =>> parentheses is a must
         ON DELETE SET NULL;
 
-    * note: [ordering] [UNIQUE or INDEX] attribute          =>> not dropped
-        [1] ALTER TABLE orders 
-            DROP CONSTRAINT ordering;                       =>> way [1]: DROP FOREIGN KEY
+    * [ordering] constraint     =>> in relation view    =>> dropped
+    * [ordering]  =>> [index key] or [keyname]          =>> not dropped
 
-        [2] ALTER TABLE orders 
-            DROP FOREIGN KEY ordering;                      =>> way [2]: DROP FOREIGN KEY
+        [1] ALTER TABLE orders                          =>> way [1]: DROP FOREIGN KEY
+            DROP CONSTRAINT ordering;                   =>> [no parentheses] is a must
+
+        [1] ALTER TABLE orders                          =>> way [2]: DROP FOREIGN KEY
+            DROP FOREIGN KEY ordering;                  =>> [no parentheses] is a must
+
+        [2] ALTER TABLE orders                          =>> way [1]: drop foreign key
+            DROP CONSTRAINT orders_ibfk_1;              =>> [no parentheses] is a must
+
+        [2] ALTER TABLE orders                          =>> way [2]: drop foreign key
+            DROP FOREIGN KEY orders_ibfk_1;             =>> [no parentheses] is a must
 
 */
 

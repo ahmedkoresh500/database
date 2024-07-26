@@ -17,7 +17,7 @@
 13- [constraint intro]
 14- [NOT NULL], [UNIQUE] constraint
 
-15- [primary key] constraint
+15- [primary key] constraint		=>> show databases like 'elzero';  =>> show indexes from `students`;
 16- foreign key [part 1] constraint
 17- foreign key [part 2]  [CREATE TABLE try2();], [DROP TABLE try2;], [TRUNCATE try2;] [CASCADE effect]
 18- foreign key [part 3]  [ON UPDATE, ON DELETE] =>> [restrict] [no action] [cascade] [set null]

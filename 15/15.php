@@ -8,29 +8,34 @@
 
     * [primary key] has [index key] [keyname]  =>>  called [PRIMARY]
 
-    =>> CREATE TABLE classes(                       =>> way [1]
-        cid INT (11) NOT NULL UNIQUE PRIMARY KEY,   =>> must decide length
-        name VARCHAR (255) UNIQUE,
-    )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+    * [phpmyadmin]
+        [1] CREATE TABLE classes(                       =>> way [1]
+            cid INT (11) NOT NULL UNIQUE PRIMARY KEY,   =>> must decide length
+            name VARCHAR (255) UNIQUE,
+            ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-    =>> CREATE TABLE teachers(
-        tid INT (11) NOT NULL,
-        name VARCHAR (255),
-        PRIMARY KEY (tid)                           =>> way [2]
-    )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+        [1] CREATE TABLE teachers(
+            tid INT (11) NOT NULL,
+            name VARCHAR (255),
+            PRIMARY KEY (tid)                           =>> way [2]
+        )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
-    =>> ALTER TABLE students ADD PRIMARY KEY (id);  =>> way [3]
-    =>> ALTER TABLE students DROP PRIMARY KEY;      =>> not specified =>> cauz i have only one
+        [2] ALTER TABLE students ADD PRIMARY KEY (id);  =>> way [3]
 
-    =>> ALTER TABLE students DROP PRIMARY KEY, ADD PRIMARY KEY(id);     =>> way [4]
+        [3] ALTER TABLE students CHANGE id id INT (11) NOT NULL UNIQUE PRIMARY KEY;     =>> way [4]
+        [4] ALTER TABLE students MODIFY id INT(11) NOT NULL UNIQUE PRIMARY KEY;         =>> way [5]
 
-    * [elzero] database
-    =>> SHOW DATABASES LIKE 'elzero';       =>> ['] is a must  =>> [`] = syntax error
-                                            =>> ["] is a must  =>> [`] = syntax error
 
-    * [students] table
-    =>> SHOW INDEXES FROM students;         =>> [`] is optional     =>> ['] = syntax error
-    =>> SHOW INDEXES FROM `students`;       =>> [`] is optional     =>> ["] = syntax error
+        =>> ALTER TABLE students DROP PRIMARY KEY;      =>> not specified =>> cauz i have [only one]
+        =>> ALTER TABLE students DROP PRIMARY KEY, ADD PRIMARY KEY(id);     =>> way [6]
+
+    * [elzero] database:
+        =>> SHOW DATABASES LIKE 'elzero';   =>> ['] is a must  =>> [`] = syntax error
+                                            =>> ["] is a must
+
+    * [students] table:
+        =>> SHOW INDEXES FROM students;         =>> [`] optional    =>> ['] = syntax error
+        =>> SHOW INDEXES FROM `students`;       =>> [`] optional    =>> ["] = syntax error
 */
 
 

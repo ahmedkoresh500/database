@@ -6,8 +6,11 @@
         [1] [primary key]       =>> parent key
         [2] [foreign key]       =>> child key
 
-        =>> [primary key] [foreign key]  =>> must be INT
+        =>> [primary] [foreign]  =>> must be INT
         =>> if VARCHAR = syntax error   =>> when making [foreign key] relationship
+
+    * [phpmyadmin]: to see [foreign key] relationships
+        =>> press [table]  =>> press [structure]  =>> press [relation view]
 
     * [phpmyadmin]:
         =>> DROP TABLE clients, orders;                 =>> can't drop clients
@@ -24,9 +27,9 @@
             price VARCHAR(255) NOT NULL,
             client_id INT (11) NOT NULL,
             FOREIGN KEY (client_id) REFERENCES clients (id) =>> way [1]: add foreign key
-            ON UPDATE CASCADE                               =>> [foreign key] constraint = (orders_ibfk_1) by default
-            ON DELETE CASCADE                               =>> [relation view]
-        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;           =>> (client_id)  =>> parentheses is a must
+            ON UPDATE CASCADE                       =>> [foreign key] constraint  =>> by default = (orders_ibfk_1)
+            ON DELETE CASCADE                       =>> [relation view]
+        ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;   =>> (client_id)  =>> parentheses is a must
 
         [2] CREATE TABLE orders (
             id INT (11) NOT NULL PRIMARY KEY,
@@ -39,7 +42,7 @@
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
         [3] ALTER TABLE orders                              =>> way [2]: add foreign key
-        ADD FOREIGN KEY (client_id) REFERENCES clients (id) =>> [foreign key] constraint = (orders_ibfk_1) by default 
+        ADD FOREIGN KEY (client_id) REFERENCES clients (id) =>> [foreign key] constraint  =>> by default = (orders_ibfk_1)
         ON UPDATE CASCADE                                   =>> [relation view]
         ON DELETE CASCADE;                                  =>> (client_id)  =>> parentheses is a must
 
@@ -50,26 +53,22 @@
         ON DELETE CASCADE;
 
 
+    * [ordering] constraint  =>> in [relation view]     =>> dropped
+    * [ordering] => [INDEX key] or [keyname]            =>> not dropped
+        [1] ALTER TABLE orders                      =>> way [1]: drop foreign key
+        DROP CONSTRAINT ordering;                   =>> [no parentheses] mandatory  =>> [no parentheses] is a must
 
-    * note: [ordering] [UNIQUE or INDEX] attribute      =>> not dropped
-        [1] ALTER TABLE orders
-            DROP CONSTRAINT ordering;                   =>> way [1]: drop foreign key
+        [1] ALTER TABLE orders                      =>> way [2]: drop foreign key
+        DROP FOREIGN KEY ordering;                  =>> [no parentheses] mandatory  =>> [no parentheses] is a must
 
-        [2] ALTER TABLE orders
-            DROP FOREIGN KEY ordering;                  =>> way [2]: drop foreign key
-                                            
-
-        =>> SELECT * FROM orders JOIN clients   =>> written first  =>> shown first
-        ON clients.id = orders.client_id;       =>> [WHERE] instead of [ON]  =>> in [JOIN] [INNER JOIN] case only
-
-        =>> SELECT * FROM orders JOIN clients   =>> written first  =>> shown first
-        ON clients.id = orders.client_id        =>> [WHERE] instead of [ON]  =>> in [JOIN] [INNER JOIN] case only
-        WHERE clients.id = 7;                   =>> [clients.id]  =>> condition on specific table
+        [2] SELECT * FROM orders JOIN clients   =>> written first  =>> shown first
+        ON clients.id = orders.client_id        =>> [WHERE] instead of [ON]  =>> [JOIN] [INNER JOIN] only
+        WHERE clients.id = 7;
 
 
     * [CASCADE] effect:
             =>> UPDATE clients SET id=3 WHERE id=5;     =>> update data in two tables => [clients] [orders]
-            =>> DELETE FROM 'clients' WHERE id = 7;     =>> delete data in two tables => [clients] [orders]
+            =>> DELETE FROM 'clients' WHERE id = 3;     =>> delete data in two tables => [clients] [orders]
                                                         =>> delete whole row in [orders]
 
 
@@ -77,11 +76,13 @@
         =>> CREATE TABLE try2(id INT(11));      =>> create table
         =>> DROP TABLE try2;                    =>> drop table
 
-    * 4 different ways  =>> to empty specific table:
+    * [4] ways  =>> to empty specific table:
         =>> press [database]  =>> press [empty] for specific table          =>> 4 are the same
         =>> press [table]  =>> press [operations]  =>> press [truncate]     =>> 4 are the same
         =>> TRUNCATE try2;                                                  =>> 4 are the same
         =>> DELETE FROM try2;                                               =>> 4 are the same
+
+        =>> DELETE * FROM try2;                 =>> result = syntax error   =>> no [*] in delete
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";

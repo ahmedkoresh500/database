@@ -6,7 +6,7 @@
     * primary key           =>> parent key
     * foreign key           =>> child key
     
-    * [primary key] [foreign key]  =>> must be INT
+    * [primary] [foreign]  =>> must be INT
 
     =>> CREATE TABLE clients (
         id INT (11) NOT NULL,
@@ -25,8 +25,8 @@
     =>> BROP TABLE clients, orders;                     =>> can't drop clients
     =>> DROP TABLE clients;                             =>> drop clients
 
-    * [phpmyadmin]:
-        =>> press [table]  =>> press [structure]  =>> press [relation view]  =>> to see [foreign key] relationship
+    * [phpmyadmin]: to see [foreign key] relationship
+        =>> press [table]  =>> press [structure]  =>> press [relation view]
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";
