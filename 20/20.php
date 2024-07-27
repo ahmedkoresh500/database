@@ -23,25 +23,27 @@
         [1] CREATE TABLE comments(                      =>> two are the same
             id INT(11) NOT NULL PRIMARY KEY,
             comment VARCHAR (255) NOT NULL,
-            client_id INT (11) NOT NULL,
-            CONSTRAINT commenting                           // [2] [CONSTRAINT] optional => shown in [relation view]
+            client_id INT (11) NOT NULL,                    // [2] [CONSTRAINT] optional => shown in [relation view]
+            CONSTRAINT commenting                           // way [1]: add foreign key
             FOREIGN KEY (client_id) REFERENCES clients(id)  // [foreign key] constraint = commenting
-            ON UPDATE CASCADE                               // (client_id)  =>> parentheses is a must
-            ON DELETE CASCADE,
+            ON UPDATE CASCADE                               // relation view
+            ON DELETE CASCADE,                              // (client_id)  =>> parentheses is a must
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
-    * [commenting] [UNIQUE or INDEX] attribute  =>> not dropped
-        [2] ALTER TABLE comments
-            DROP CONSTRAINT commenting;         =>> two are the same
+    * [commenting] constraint  =>> in relation view     =>> dropped
+    * [commenting] [index key] or [keyname]             =>> not dropped
 
-        [2] ALTER TABLE comments
-            DROP FOREIGN KEY commenting;        =>> two are the same
+        [2] ALTER TABLE comments                =>> two are the same
+            DROP CONSTRAINT commenting;         
 
-        =>> ALTER TABLE comments
-            ADD CONSTRAINT commenting                       // [2] [CONSTRAINT] optional => shown in [relation view]
+        [2] ALTER TABLE comments                =>> two are the same
+            DROP FOREIGN KEY commenting;        
+
+        =>> ALTER TABLE comments                            // [2] [CONSTRAINT] optional => shown in [relation view]
+            ADD CONSTRAINT commenting                       // way [2]: add foreign key
             FOREIGN KEY (client_id) REFERENCES clients(id)  // [foreign key] constraint = commenting
-            ON UPDATE CASCADE                               // (client_id)  =>> parentheses is a must
-            ON DELETE CASCADE;
+            ON UPDATE CASCADE                               // relation view
+            ON DELETE CASCADE;                              // (client_id)  =>> parentheses is a must
 
 */
 

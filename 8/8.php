@@ -14,10 +14,10 @@
         =>> use osama;                              =>> semicolon is a must
 
         =>> SHOW DATABASES LIKE 'osama';            =>> ['] is a must       =>> [`] = syntax error
-        =>> SHOW DATABASES LIKE "osama";            =>> ["] is a must       =>> [`] = syntax error
+        =>> SHOW DATABASES LIKE "osama";            =>> ["] is a must
 
-        =>> SHOW INDEXES FROM identity;             =>> [`] is optional     =>> [']or["] = syntax error
-        =>> SHOW INDEXES FROM `identity`;           =>> [`] is optional     =>> [']or["] = syntax error
+        =>> SHOW INDEXES FROM identity;             =>> [`] is optional     =>> ['] = syntax error
+        =>> SHOW INDEXES FROM `identity`;           =>> [`] is optional     =>> ["] = syntax error
         =>> SHOW INDEXES FROM osama.identity;
         =>> SHOW INDEXES FROM `osama`.`identity`;
 

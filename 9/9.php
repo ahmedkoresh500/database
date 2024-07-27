@@ -11,7 +11,7 @@
     * [xampp] program       =>> press [shell]
     * [phpmyadmin]          =>> press [SQL]
         =>> mysql -u root -p
-        =>> enter password                                  =>> [""]or["password1"]  =>> open [MariaDB]
+        =>> enter password:                                 =>> [""]or["password1"]  =>> open [MariaDB]
 
         =>> show databases;                                 =>> [;] is a must
         =>> use osama;                                      =>> [;] is a must
@@ -37,8 +37,11 @@
         =>> show create table students;         =>> to show [create command]
 
         =>> CREATE TABLE students;                              =>> must have one column   
-        =>> CREATE TABLE students (id INT (11));                =>> exists
-        =>> CREATE TABLE IF NOT EXISTS students (id INT (11));
+        =>> CREATE TABLE students (id INT (11) NOT NULL);       =>> exists
+
+        =>> CREATE TABLE IF NOT EXISTS students (id INT (11) NOT NULL);
+
+        =>> DROP TABLE students;
         =>> DROP TABLE IF EXISTS students;
 */
 

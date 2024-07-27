@@ -17,16 +17,18 @@
     * SERIAL        =>> alias for [BIGINT]
 
     * [phpmyadmin]:
-        * 4 ways to empty specific [table]:
-        [1] press [database]  =>> press [empty] for specific table  =>> 4 are the same
-        [2] press [table] =>> press [operations] =>> press [empty]  =>> 4 are the same
+        * [4] ways  =>> to empty specific [table]:
+        [1] press [database]  =>> press [empty] for specific table      =>> 4 are the same
+        [2] press [table] =>> press [operations] =>> press [truncate]   =>> 4 are the same
 
-        [3] TRUNCATE `items`;                                       =>> 4 are the same
-        [3] TRUNCATE `products`.`items`;                            =>> 4 are the same
-        [4] DELETE FROM items;                                      =>> 4 are the same
+        [3] TRUNCATE `items`;                                           =>> 4 are the same
+        [3] TRUNCATE `products`.`items`;                                =>> 4 are the same
+        [4] DELETE FROM items;                                          =>> 4 are the same
 
-        * to change [column] datatype:
-        [1] press [table]  =>> press [structure]  =>> press [change] for any column  =>> change [dataType]
+        =>> DELETE * FROM items;                =>> result = syntax error  =>> no [*] in delete
+
+        * change [column] datatype:
+        [1] press [table]  =>> press [structure]  =>> press [change] for speciifc column  =>> change [dataType]
         [2] ALTER TABLE items CHANGE id id INT (11) NOT NULL UNIQUE;
         [3] ALTER TABLE items MODIFY id INT (11) NOT NULL UNIQUE;
 

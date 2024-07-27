@@ -10,7 +10,7 @@
         =>> ALTER TABLE s1 CHANGE id ID VARCHAR (255);              =>> rename [column] =>> way [1]
         =>> ALTER TABLE s1 MODIFY ID INT (11);                      =>> modify column   =>> way [2]
 
-        =>> ALTER TABLE students MODIFY id INT (11), CHANGE name name CHAR (255);
+        =>> ALTER TABLE students MODIFY ID INT (11), CHANGE name name CHAR (255);
 
     * related to lesson [45]:
         =>> ALTER TABLE students CONVERT TO CHARACTER SET utf8;     =>> all columns [utf8]
@@ -27,7 +27,7 @@ $userName = "root";
 $password = "";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",           // [utf8]  =>> uppercase or lowercase
-);                                                              // [utf8]  =>> support arabic in database
+);                                                              // [utf8]  =>> support Arabic in database
 
 $db = new PDO($dsn, $userName, $password, $options);
 

@@ -3,13 +3,13 @@
 3-  information about [phpmyadmin] & [command line]
 4-  connect with PDO		[$stm=$db->prepare("query")] [$stm->execute();] ----- [$db->exec($query);]
 
-5-  dataType: [integer type]
+5-  dataType: [integer type]	   [create DB][drop DB] [create table][drop table] [add column][drop column]
 6-  dataType: [Date & Time] type
 7-  dataType: [string type]
 
-8-  deal with databases
+8-  deal with databases		=>> [show databases like 'elzero']  [show indexes from `students`]
 
-9-  deal with tables  [part 1] 	=>> [create table]
+9-  deal with tables  [part 1] 	=>> [create table]  [describe students;] [show table status] [show create table students;]
 10- deal with tables  [part 2]  =>> [rename table], [storage engine]
 11- deal with tables  [part 3]  =>> [ALTER]	[structure -> drop specific column] [structure -> move columns]
 12- deal with tables  [part 4]  =>> [ALTER revision]	[CONVERT TO CHARACTER SET]  =>> lesson [45] 
@@ -39,7 +39,7 @@
 30- Numeric functions [part 1]	[CEIL, FLOOR, ROUND]
 31- Numeric functions [part 2]	[MOD, TRUNCATE, POW]
 
-32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()] =>> lesson []
+32- [Date + Time] functions  [part 1]	[CURTIME(), CURDATE(), NOW()] =>> lesson [6]
 33- [Date + Time] functions  [part 2]	[DAYNAME(date), DAYOFWEEK(date), DAYOFMONTH(date), DAYOFYEAR(date)]  =>> 
 34- [Date + Time] functions  [part 3]	[MONTH(), MONTHNAME(), HOUR(), MINUTE()]
 35- [Date + Time] functions  [part 4]   [DATEDIFF()]

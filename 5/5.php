@@ -8,14 +8,14 @@
         [2] ALTER TABLE products.date ADD UNIQUE (id);  =>> 3 ar ethe same  =>> [parentheses] is a must
         [3] ALTER TABLE date ADD INDEX (id);            =>> 3 are the same  =>> [parentheses] is a must
 
-        [1] add [unique] attribute  with [keyname]  =>> [id]
-        [2] add [unique] attribute  with [keyname]  =>> [id_1]
-        [3] add [unique] attribute  with [keyname]  =>> [id_2]
+        [1] [index key] or [keyname]    = [id]
+        [2] [index key] or [keyname]    = [id_1]
+        [3] [index key] or [keyname]    = [id_2]
 
     * [no parentheses] is a must  =>> id, id_1, id_2
-        [4] ALTER TABLE date DROP INDEX id;     =>> drop [unique] attribute  with [keyname]  =>> [id]
-        [5] ALTER TABLE date DROP INDEX id_2;   =>> drop [unique] attribute  with [keyname]  =>> [id_1]
-        [6] ALTER TABLE date DROP INDEX id_3;   =>> drop [unique] attribute  with [keyname]  =>> [id_2]
+        [4] ALTER TABLE date DROP INDEX id;     =>> drop [unique] attribute
+        [5] ALTER TABLE date DROP INDEX id_2;   =>> drop [unique] attribute
+        [6] ALTER TABLE date DROP INDEX id_3;   =>> drop [unique] attribute
 
         =>> ALTER TABLE date ADD PRIMARY KEY (id);
         =>> ALTER TABLE date DROP PRIMARY KEY;
@@ -40,7 +40,7 @@ $userName = "root";
 $password = "";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8]   =>> uppercase or lowercase
-);                                                          // [utf8]   =>> support arabic in database
+);                                                          // [utf8]   =>> support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);

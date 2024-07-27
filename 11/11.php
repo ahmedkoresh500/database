@@ -5,11 +5,10 @@
 
     [1] [Add]:
         =>> mysql -u root -p
-        =>> enter password                                  =>> [""] no password
+        =>> enter password                                  =>> [""] no password    =>> open [MariaDB]
 
         =>> show databases;                                 =>> [;] is amust
         =>> use osama;                                      =>> semicolon is a must
-
 
         =>> show table status                                           =>> show status of all tables
         =>> ;                                                           =>> semicolon is a must

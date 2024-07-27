@@ -10,7 +10,7 @@
     * [phpmyadmin]          =>> press [SQL]
 
     =>> mysql -u root -p
-    =>> enter password                              =>> [""]or["password1"]  =>> open [MariaDB]
+    =>> enter password:                             =>> [""]or["password1"]  =>> open [MariaDB]
 
     =>> create table s1 (id int (11) not null primary key) engine=innodb;
     =>> create table s2 (id INT (11) NOT NULL PRIMARY KEY) engine=innodb;
@@ -26,7 +26,7 @@
         =>> press [table]  =>> press [operations]  =>> rename table        =>> 3 are the same
         =>> press [table]  =>> press [operations]  =>> change engine       =>> 3 are the same
 
-    * [engine] [storage engine] = InnoDB;
+    * [engine] [storage engine] = InnoDB
     * [engine] [storage engine] = MYISAM
 */
 

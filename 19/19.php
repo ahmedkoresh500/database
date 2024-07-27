@@ -3,29 +3,29 @@
 /*
     * foreign key: [part 4]: relationships:
         =>> [one to one]            =>> visa number owned by one client
-        =>> [one to many]           =>> more than [one address] [one order]
+        =>> [one to many]           =>> more than [one address] [one order] [one comment]
         =>> [many to many]
 
     * [phpmyadmin]:  =>> [one to one] relationship:
         [1] CREATE TABLE cards(
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
-            client_id INT (11) NOT NULL,
-            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = (orders_ibfk_1) by default
+            client_id INT (11) NOT NULL,                    =>> way [1]: add foreign key
+            FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint => by default = (orders_ibfk_1)
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;           =>> (client_id)  =>> parentheses is a must
 
         [1] CREATE TABLE cards(
             id INT (11) NOT NULL PRIMARY KEY,
             card_num VARCHAR (255),
-            client_id INT (11) NOT NULL,
-            CONSTRAINT ordering                             =>> [constraint] optional => shown in [relation view]
+            client_id INT (11) NOT NULL,                    =>> [constraint] optional  =>> shown in [relation view]
+            CONSTRAINT ordering                             =>> way [1]: add foreign key
             FOREIGN KEY (client_id) REFERENCES clients(id)  =>> [foreign key] constraint = ordering
-            ON UPDATE CASCADE                               =>> (client_id)  =>> parentheses is a must
-            ON DELETE CASCADE,
+            ON UPDATE CASCADE                               =>> relation view
+            ON DELETE CASCADE,                              =>> (client_id)  =>> parentheses is a must
         ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
-        =>> ALTER TABLE cards ADD UNIQUE (card_num);    =>> two are the same    =>> keyname = [card_num]
-        =>> ALTER TABLE cards ADD INDEX (card_num);     =>> two are the same    =>> keyname = [card_num_1]
+        =>> ALTER TABLE cards ADD UNIQUE (card_num);  =>> 2 are the same  =>> [index key]or[keyname] = [card_num]
+        =>> ALTER TABLE cards ADD INDEX (card_num);   =>> 2 are the same  =>> [index key]or[keyname] = [card_num_1]
 */
 
 $dsn = "mysql:host=localhost;dbName=elzero";

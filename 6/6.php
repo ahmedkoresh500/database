@@ -18,7 +18,7 @@ $password = "";
 
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8";       // [utf8]  =>> uppercase or lowercase
-);                                                          // [utf8]  =>> support arabic in database
+);                                                          // [utf8]  =>> support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
