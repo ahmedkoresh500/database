@@ -12,14 +12,14 @@
     [4] [phpmyadmin]    =>> press [SQL]
 
         =>> mysql -u root -p
-        =>> [enter password]                        =>> [""]or["password1"]  =>> open [MariaDB]
+        =>> enter password:                         =>> [""]or["password1"]  =>> open [MariaDB]
         =>> show databases;                         =>> semicolon is a must
         =>> use products;                           =>> semicolon is a must
 
         =>> SELECT id, name FROM items;             =>> two are the same
         =>> SELECT id, name FROM products.items;    =>> two are the same
-        =>> [quit]or[\q]                             =>> semicolon here optional  =>> exit [MariaDB]
-
+        =>> [quit]or[\q]                            =>> semicolon here optional  =>> exit [MariaDB]
+                                                    =>> [\] not [/]
     * [phpmyadmin]  =>> press [SQL]:
         =>> CREATE DATABASE osama;                  =>> [osama]     =>> sensitive to upper and lower cases
         =>> CREATE DATABASE IF NOT EXISTS osama;    =>> [keywords]  =>> not sensitive to upper and lower cases

@@ -36,7 +36,7 @@ $userName = 'root';
 $password = '';
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',   // [utf8]  =>> uppercase or lowercase
-);                                                      // [utf8]  =>> [support arabic in database]
+);                                                      // [UTF8]  =>> support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
@@ -48,8 +48,8 @@ try{
     $stm -> execute();
 
     // way [2]:
-    $query = "INSERT INTO products.items VALUES (NULL, 'Khortom', 'Sudan')";                            // two are the same
-    // $query = "INSERT INTO products.items (id, `city`, `country`) VALUES (NULL, 'khortom', 'sudan')"; // two are the same
+    $query = "INSERT INTO products.items VALUES (NULL, 'Khortom', 'Sudan')";                            // 2 are the same
+    // $query = "INSERT INTO products.items (id, `city`, `country`) VALUES (NULL, 'khortom', 'sudan')"; // 2 are the same
     $db -> exec($query);
 
 }catch(PDOException $e){

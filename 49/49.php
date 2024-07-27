@@ -34,8 +34,8 @@ $dsn = "mysql:host=localhost;dbName=elzero";
 $userName = "root";
 $password = "";
 $options = array(
-    PDO::MYSQL_aTTR_INIT_COMMAND => "SET NAMES utf8",       // uppercase or lowercase
-);                                                          // support Arabic in dataBase
+    PDO::MYSQL_aTTR_INIT_COMMAND => "SET NAMES utf8",       // [utf8] uppercase or lowercase
+);                                                          // [UTF8] support Arabic in database
 
 try{
     $db = new PDO($dsn, $userName, $password, $options);
